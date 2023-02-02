@@ -15,7 +15,7 @@ import TOAST_DEFAULTS from "../Helpers/toastSettings";
  * App -> RouteList -> ProfileForm
  **/
 function ProfileForm({ updateUser }) {
-  const { user } = useContext(userContext);
+  const  user  = useContext(userContext);
   const [err, setErr] = useState(null);
 
   const [status, setStatus] = useState({
