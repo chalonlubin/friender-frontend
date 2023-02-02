@@ -50,8 +50,13 @@ function NavBar({ handleLogout }) {
             {currUser && (
               <>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/matches">
-                    Matches
+                  <NavLink className="nav-link" to="/swipe">
+                    Swipe
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/chums">
+                    Chums
                   </NavLink>
                 </li>
                 <li className="nav-item">

@@ -49,10 +49,10 @@ function Login({ handleLogin }) {
       toast("🚀 Login Successful!", TOAST_DEFAULTS);
     } catch (err) {
       setErr(err);
-      toast(`❌ Login Failed`, TOAST_DEFAULTS);
     }
     setFormData(initialState);
   }
+
   console.log("err", err)
   return (
     <div className="Login d-flex justify-content-center p-3">
@@ -60,7 +60,7 @@ function Login({ handleLogin }) {
         <h1 className="Login-form-header">Log In</h1>
         <form onSubmit={handleSubmit} className="Login-form bg-light rounded p-3">
           <div className="form-group">
-            {/* {err.length > 0 && <Alerts err={err} />} */}
+            {err && <Alerts err={err} />}
             <label className="d-flex float-left m-2" htmlFor="username">
               <b>Username</b>
             </label>

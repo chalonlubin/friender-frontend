@@ -40,7 +40,6 @@ function App() {
     const token = await FrienderApi.registerUser(data);
     handleToken(token);
     setCurrToken(token);
-    toast("✅ Sign-up Successful!", TOAST_DEFAULTS);
   }
 
   function handleLogout() {

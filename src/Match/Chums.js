@@ -1,5 +1,5 @@
-function Matches() {
+function Chums() {
   return (<p> match placeholder here!</p>)
 }
 
-export default Matches;
+export default Chums;

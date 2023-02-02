@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-// import Alerts from "../Common/Alerts";
+import { toast } from "react-toastify";
+import Alerts from "../Common/Alerts";
+import TOAST_DEFAULTS from "../Helpers/toastSettings";
 import userContext from "./userContext";
 
 /** Render signup form and navigate to homepage on successful sign up
@@ -49,16 +51,15 @@ function Signup({ handleRegister }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      // TODO: put formData into formData and pass that
-      console.log("inputData", inputData);
       for (let fieldName in inputData) {
         formData.append(fieldName, inputData[fieldName])
       }
       formData.append("image", document.querySelector("#image").files[0])
 
-      console.log("formData", formData.get("image"))
       await handleRegister(formData);
       navigate("/");
+      toast("✅ Sign-up Successful!", TOAST_DEFAULTS);
+
     } catch (err) {
       setErr(err);
     }
@@ -71,7 +72,7 @@ function Signup({ handleRegister }) {
         <h1 className="form-header">Sign Up</h1>
         <form onSubmit={handleSubmit} className="SignupForm bg-light rounded p-3">
           <div className="form-group">
-            {/* {err &&  <Alerts err={err} />} */}
+            {err && <Alerts err={err} />}
             <label className="d-flex float-left m-2" htmlFor="username">
               <b>Username</b>
             </label>

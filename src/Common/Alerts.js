@@ -8,11 +8,11 @@
  *
  * App -> RouteList -> {SignupForm, LoginForm, ProfileForm} -> Alert
  **/
-function Alerts({ alerts, type }) {
+function Alerts({ err }) {
   return (
     <div className="Alert">
-      <div className={`alert alert-${type}`} role="alert">
-        {alerts.map((e) => (
+      <div className={`alert alert-danger`} role="alert">
+        {err.map((e) => (
           <p className="mb-0 small" key={e}>
             {e}
           </p>

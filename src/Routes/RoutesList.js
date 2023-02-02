@@ -6,10 +6,10 @@ import Login from "../User/LoginForm";
 import Signup from "../User/SignupForm";
 import ProfileForm from "../User/ProfileForm";
 import Profile from "../User/Profile";
-import Swipe from "../Swipe";
-import Matches from "../Match/Matches";
+import Swipe from "../Swipe/Swipe";
 import Messages from "../Messages/Message";
 import NotFound from "../Common/NotFound";
+import Chums from "../Match/Chums";
 
 /** Set up Friender routes
  *
@@ -34,7 +34,7 @@ function RoutesList({ handleLogin, handleRegister, handleUpdate }) {
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/edit" element={<ProfileForm handleUpdate={handleUpdate} />} />
         <Route path="/swipe" element={<Swipe />} />
-        <Route path="/matches" element={<Matches />} />
+        <Route path="/chums" element={<Chums />} />
         <Route path="/messages/:matchedUser" element={<Messages />} />
       </>
     );
