@@ -25,7 +25,7 @@ import Chums from "../Match/Chums";
  */
 
 // handleSwipe?
-function RoutesList({ handleLogin, handleRegister, handleUpdate }) {
+function RoutesList({ handleLogin, handleRegister, handleUpdate, handleSwipe }) {
   const { currUser } = useContext(userContext);
 
   function authRoutes() {
@@ -33,7 +33,7 @@ function RoutesList({ handleLogin, handleRegister, handleUpdate }) {
       <>
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/edit" element={<ProfileForm handleUpdate={handleUpdate} />} />
-        <Route path="/swipe" element={<Swipe />} />
+        <Route path="/swipe" element={<Swipe handleSwipe={handleSwipe} />} />
         <Route path="/chums" element={<Chums />} />
         <Route path="/messages/:matchedUser" element={<Messages />} />
       </>

@@ -11,12 +11,13 @@ class FrienderApi {
   static async request(endpoint, data = {}, method = "get") {
     console.debug("API Call:", endpoint, data, method);
 
-    console.log("Frienderapi data", (data instanceof FormData));
+    console.log("Frienderapi data", data instanceof FormData);
 
     const url = `${BASE_URL}/${endpoint}`;
     const headers = {
       Authorization: `Bearer ${FrienderApi.token}`,
-      'Content-Type': (data instanceof FormData) ? 'multipart/form-data': 'application/json'
+      "Content-Type":
+        data instanceof FormData ? "multipart/form-data" : "application/json",
     };
     const params = method === "get" ? data : {};
 
@@ -51,6 +52,24 @@ class FrienderApi {
   static async registerUser(data) {
     let res = await this.request(`auth/register`, data, "post");
     return res.token;
+  }
+
+  /** Record a swipe
+   *
+   * input: liker, likee, match(Boolean)
+   *
+   * - data {username, username, boolean}
+   *
+   * Returns {liker, likee, matchStatus (bool)}
+   */
+  static async recordSwipe(liker, likee, match) {
+    let res = await this.request(
+      `matches/${liker.username}`,
+      { likee, match },
+      "post"
+    );
+
+    return res.matchStatus;
   }
 
   /** Get users that the curr user has NOT matched with, and is not curr user

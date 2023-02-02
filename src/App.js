@@ -8,7 +8,6 @@ import FrienderApi from "./Helpers/api";
 import jwt_decode from "jwt-decode";
 import { useEffect, useState } from "react";
 
-
 import NavBar from "./Routes/NavBar";
 import RoutesList from "./Routes/RoutesList";
 import Loading from "./Common/Loading";
@@ -28,6 +27,8 @@ function App() {
     localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY)
   );
   const [isLoading, setIsLoading] = useState(true);
+  const [potentials, setPotentials] = useState(null);
+  const [matches, setMatches] = useState(null)
 
   async function handleLogin(data) {
     const token = await FrienderApi.loginUser(data);
@@ -36,7 +37,7 @@ function App() {
   }
 
   async function handleRegister(data) {
-    console.log("register", data)
+    console.log("register", data);
     const token = await FrienderApi.registerUser(data);
     handleToken(token);
     setCurrToken(token);
@@ -55,6 +56,14 @@ function App() {
     toast("👍 Update Successful!", TOAST_DEFAULTS);
   }
 
+  async function handleSwipe(likee, status) {
+    await FrienderApi.recordSwipe(currUser.username, likee, status);
+    const newMatches = await FrienderApi.getMatches(currUser.username);
+    const newPotentials = await FrienderApi.getPotentials(currUser);
+    setMatches(newMatches);
+    setPotentials(newPotentials);
+  }
+
   function handleToken(token) {
     localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, token);
     setIsLoading(true);
@@ -67,7 +76,7 @@ function App() {
         FrienderApi.token = currToken;
         const { username } = jwt_decode(currToken);
         const user = await FrienderApi.getUser(username);
-        setCurrUser(user);
+        setCurrUser({ user });
         setIsLoading(false);
       }
       if (currToken !== null) {
@@ -79,16 +88,19 @@ function App() {
     [currToken]
   );
 
+  console.log("currUser", currUser);
+
   if (isLoading) return <Loading />;
 
   return (
     <div className="App">
       <div className="Friender">
-        <userContext.Provider value={{ currUser }}>
+        <userContext.Provider value={{ currUser, potentials, matches }}>
           <BrowserRouter>
             <ToastContainer />
             <NavBar handleLogout={handleLogout} />
             <RoutesList
+              handleSwipe={handleSwipe}
               handleLogin={handleLogin}
               handleRegister={handleRegister}
               handleUpdate={handleUpdate}

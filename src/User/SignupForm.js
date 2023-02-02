@@ -25,7 +25,7 @@ import userContext from "./userContext";
 function Signup({ handleRegister }) {
   const navigate = useNavigate();
   const formData = new FormData();
-  const { currUser } = useContext(userContext);
+
 
   // TODO: location and radius must be coerced to integer
   const initialState = {
