@@ -5,7 +5,7 @@ import {
 import UserCard from "./UserCard";
 
 /**
- *
+ * potentials -- [{user}]
  * @returns
  */
 function Swipe({ potentials, handleSwipe }) {
@@ -16,12 +16,15 @@ function Swipe({ potentials, handleSwipe }) {
     setUser(user);
   }
 
-  function handleClick(evt) {
+  async function handleClick(evt) {
     // trigger post match -- false
     const matchStatus = evt.target.value;
-    handleSwipe(user.username, matchStatus)
-  }
+    // handleSwipe will -- update match table, refetch potential refetch matches
+    await handleSwipe(user.username, matchStatus)
 
+    setUser(potentials[Math.floor(Math.random() * potentials.length)])
+  }
+  // TODO: if no more potentials, spit out message
 
   return (
     <section className="col-md-4">
