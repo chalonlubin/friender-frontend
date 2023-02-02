@@ -1,11 +1,17 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
-import userContext from "./userContext";
-import Homepage from "./Homepage";
-import Login from "./Login";
-import Signup from "./Signup";
+import userContext from "../User/userContext";
+import Homepage from "../Common/Homepage";
+import Login from "../User/LoginForm";
+import Signup from "../User/SignupForm";
+import ProfileForm from "../User/ProfileForm";
+import Profile from "../User/Profile";
+import Swipe from "../Match/Swipe";
+import Matches from "../Match/Matches";
+import Messages from "../Messages/Message";
+import NotFound from "../Common/NotFound";
 
-/** Set up Jobly routes
+/** Set up Friender routes
  *
  * Context
  * - currUser - obj with user info
@@ -20,7 +26,7 @@ import Signup from "./Signup";
 
 // handleSwipe?
 function RoutesList({ handleLogin, handleRegister, handleUpdate }) {
-  const { currUser } = useContext(userContext);
+  const  currUser  = useContext(userContext);
 
   function authRoutes() {
     return (
@@ -53,7 +59,7 @@ function RoutesList({ handleLogin, handleRegister, handleUpdate }) {
     <Routes>
       <Route path="/" element={<Homepage />} />
       {currUser ? authRoutes() : unauthRoutes()}
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

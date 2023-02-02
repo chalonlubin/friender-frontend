@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
-import Alerts from "./Alerts";
+import Alerts from "../Common/Alerts";
 import userContext from "./userContext";
 
 const formFileData = new FormData();
@@ -23,7 +23,7 @@ const formFileData = new FormData();
  * RoutesList -> SignupForm -> Errors
  */
 function Signup({ handleRegister }) {
-  const { currUser } = useContext(userContext);
+  const  currUser  = useContext(userContext);
 
   // TODO: location and radius must be coerced to integer
   const initialState = {
@@ -66,7 +66,7 @@ function Signup({ handleRegister }) {
         <h1 className="form-header">Sign Up</h1>
         <form onSubmit={handleSubmit} className="bg-light rounded p-3">
           <div className="form-group">
-            {err && <Alerts err={err} />}
+            {err &&  <Alerts err={err} />}
             <label className="d-flex float-left m-2" htmlFor="username">
               <b>Username</b>
             </label>

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
-import Alerts from "./Alerts";
+import Alerts from "../Common/Alerts";
 import userContext from "./userContext";
 
 /** Render login form and navigate to homepage on successful login
@@ -20,7 +20,7 @@ import userContext from "./userContext";
  * RoutesList -> LoginForm -> Errors
  */
 function Login({ handleLogin }) {
-  const { currUser } = useContext(userContext);
+  const  currUser  = useContext(userContext);
 
   const initialState = {
     username: "",
