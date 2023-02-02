@@ -18,8 +18,9 @@ function Homepage() {
     <div className="Homepage-content">
       <h1 className="Homepage-title"> Welcome to Chum Bucket! </h1>
           <h2 className="Homepage-subtitle">
-            Squad Up! LOL
+            Squad Up!
           </h2>
+        {!currUser && (
           <div className="d-flex justify-content-evenly">
             <Link
               className="btn btn-outline-light btn-lg opacity-75 m-4"
@@ -33,7 +34,9 @@ function Homepage() {
             >
               Sign up
             </Link>
+
           </div>
+        )}
         </div>
       </section>
    );

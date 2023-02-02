@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-
-// import Alerts from "../Common/Alerts";
+import Alerts from "../Common/Alerts";
 import userContext from "./userContext";
+import { toast } from "react-toastify";
+import TOAST_DEFAULTS from "../Helpers/toastSettings";
 
 /** Render login form and navigate to homepage on successful login
  * else show errors
@@ -45,8 +46,10 @@ function Login({ handleLogin }) {
     try {
       await handleLogin(formData);
       navigate("/")
+      toast("🚀 Login Successful!", TOAST_DEFAULTS);
     } catch (err) {
       setErr(err);
+      toast(`❌ Login Failed`, TOAST_DEFAULTS);
     }
     setFormData(initialState);
   }
@@ -57,7 +60,7 @@ function Login({ handleLogin }) {
         <h1 className="Login-form-header">Log In</h1>
         <form onSubmit={handleSubmit} className="Login-form bg-light rounded p-3">
           <div className="form-group">
-            {/* {err && <Alerts err={err} />} */}
+            {/* {err.length > 0 && <Alerts err={err} />} */}
             <label className="d-flex float-left m-2" htmlFor="username">
               <b>Username</b>
             </label>
