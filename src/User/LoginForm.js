@@ -53,7 +53,7 @@ function Login({ handleLogin }) {
     }
     setFormData(initialState);
   }
-
+  console.log("err", err)
   return (
     <div className="Login d-flex justify-content-center p-3">
       <div className="col-lg-4 col-12">
