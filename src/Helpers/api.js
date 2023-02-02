@@ -11,8 +11,13 @@ class FrienderApi {
   static async request(endpoint, data = {}, method = "get") {
     console.debug("API Call:", endpoint, data, method);
 
+    console.log("Frienderapi data", (data instanceof FormData));
+
     const url = `${BASE_URL}/${endpoint}`;
-    const headers = { Authorization: `Bearer ${FrienderApi.token}` };
+    const headers = {
+      Authorization: `Bearer ${FrienderApi.token}`,
+      'Content-Type': (data instanceof FormData) ? 'multipart/form-data': 'application/json'
+    };
     const params = method === "get" ? data : {};
 
     try {

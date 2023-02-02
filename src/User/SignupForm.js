@@ -1,9 +1,7 @@
 import { useContext, useState } from "react";
-import { Navigate } from "react-router-dom";
-import Alerts from "../Common/Alerts";
+import { Navigate, useNavigate } from "react-router-dom";
+// import Alerts from "../Common/Alerts";
 import userContext from "./userContext";
-
-const formFileData = new FormData();
 
 /** Render signup form and navigate to homepage on successful sign up
  * else show errors
@@ -23,26 +21,27 @@ const formFileData = new FormData();
  * RoutesList -> SignupForm -> Errors
  */
 function Signup({ handleRegister }) {
-  const  currUser  = useContext(userContext);
+  const navigate = useNavigate();
+  const formData = new FormData();
+  const { currUser } = useContext(userContext);
 
   // TODO: location and radius must be coerced to integer
   const initialState = {
     username: "",
     password: "",
-    interest: "",
+    interests: "",
     hobbies: "",
-    image: "",
     location: "",
-    radius: "",
+    radius: 5,
   };
-  const [formData, setFormData] = useState(initialState);
+  const [inputData, setInputData] = useState(initialState);
   const [err, setErr] = useState(null);
 
   function handleChange(evt) {
     const { name, value } = evt.target;
 
-    setFormData((formData) => ({
-      ...formData,
+    setInputData((inputData) => ({
+      ...inputData,
       [name]: value,
     }));
   }
@@ -50,23 +49,29 @@ function Signup({ handleRegister }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      // TODO: put formData into formFileData and pass that
-      await handleRegister(formFileData);
+      // TODO: put formData into formData and pass that
+      console.log("inputData", inputData);
+      for (let fieldName in inputData) {
+        formData.append(fieldName, inputData[fieldName])
+      }
+      formData.append("image", document.querySelector("#image").files[0])
+
+      console.log("formData", formData.get("image"))
+      await handleRegister(formData);
+      navigate("/");
     } catch (err) {
       setErr(err);
     }
-    setFormData(initialState);
+    setInputData(initialState);
   }
 
-  if (currUser) return <Navigate to={"/"} />;
-
   return (
-    <div className="SignupForm d-flex justify-content-center p-3">
+    <div className="d-flex justify-content-center p-3">
       <div className="col-lg-4 col-12">
         <h1 className="form-header">Sign Up</h1>
-        <form onSubmit={handleSubmit} className="bg-light rounded p-3">
+        <form onSubmit={handleSubmit} className="SignupForm bg-light rounded p-3">
           <div className="form-group">
-            {err &&  <Alerts err={err} />}
+            {/* {err &&  <Alerts err={err} />} */}
             <label className="d-flex float-left m-2" htmlFor="username">
               <b>Username</b>
             </label>
@@ -120,7 +125,6 @@ function Signup({ handleRegister }) {
               className="form-control"
               id="image"
               name="image"
-              value={formData.image}
             />
             <label className="d-flex float-left m-2" htmlFor="location">
               <b>Zip Code</b>

@@ -3,15 +3,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 
 import { ToastContainer, toast } from "react-toastify";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, UNSAFE_RouteContext } from "react-router-dom";
 import FrienderApi from "./Helpers/api";
 import jwt_decode from "jwt-decode";
 import { useEffect, useState } from "react";
+
 
 import NavBar from "./Routes/NavBar";
 import RoutesList from "./Routes/RoutesList";
 import Loading from "./Common/Loading";
 import TOAST_DEFAULTS from "./Helpers/toastSettings";
+import userContext from "./User/userContext";
 
 const LOCAL_STORAGE_TOKEN_KEY = "token";
 
@@ -35,6 +37,7 @@ function App() {
   }
 
   async function handleRegister(data) {
+    console.log("register", data)
     const token = await FrienderApi.registerUser(data);
     handleToken(token);
     setCurrToken(token);
@@ -83,15 +86,17 @@ function App() {
   return (
     <div className="App">
       <div className="Friender">
-        <BrowserRouter>
-          <ToastContainer />
-          <NavBar handleLogout={handleLogout} />
-          <RoutesList
-            handleLogin={handleLogin}
-            handleRegister={handleRegister}
-            handleUpdate={handleUpdate}
-          />
-        </BrowserRouter>
+        <userContext.Provider value={{ currUser }}>
+          <BrowserRouter>
+            <ToastContainer />
+            <NavBar handleLogout={handleLogout} />
+            <RoutesList
+              handleLogin={handleLogin}
+              handleRegister={handleRegister}
+              handleUpdate={handleUpdate}
+            />
+          </BrowserRouter>
+        </userContext.Provider>
       </div>
     </div>
   );

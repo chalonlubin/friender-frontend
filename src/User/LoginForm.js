@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
-import { Navigate } from "react-router-dom";
-import Alerts from "../Common/Alerts";
+import { Navigate, useNavigate } from "react-router-dom";
+
+// import Alerts from "../Common/Alerts";
 import userContext from "./userContext";
 
 /** Render login form and navigate to homepage on successful login
@@ -20,7 +21,8 @@ import userContext from "./userContext";
  * RoutesList -> LoginForm -> Errors
  */
 function Login({ handleLogin }) {
-  const  currUser  = useContext(userContext);
+  const navigate = useNavigate();
+  const { currUser } = useContext(userContext);
 
   const initialState = {
     username: "",
@@ -42,13 +44,12 @@ function Login({ handleLogin }) {
     evt.preventDefault();
     try {
       await handleLogin(formData);
+      navigate("/")
     } catch (err) {
       setErr(err);
     }
     setFormData(initialState);
   }
-
-  if (currUser) return <Navigate to={"/"} />;
 
   return (
     <div className="Login d-flex justify-content-center p-3">
@@ -56,7 +57,7 @@ function Login({ handleLogin }) {
         <h1 className="Login-form-header">Log In</h1>
         <form onSubmit={handleSubmit} className="Login-form bg-light rounded p-3">
           <div className="form-group">
-            {err && <Alerts err={err} />}
+            {/* {err && <Alerts err={err} />} */}
             <label className="d-flex float-left m-2" htmlFor="username">
               <b>Username</b>
             </label>

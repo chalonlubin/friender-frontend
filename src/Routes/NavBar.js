@@ -13,7 +13,7 @@ import userContext from "../User/userContext";
  * App -> NavBar
  */
 function NavBar({ handleLogout }) {
-  const  currUser  = useContext(userContext);
+  const { currUser } = useContext(userContext);
 
   function logOutUser() {
     handleLogout();

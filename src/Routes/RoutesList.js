@@ -6,7 +6,7 @@ import Login from "../User/LoginForm";
 import Signup from "../User/SignupForm";
 import ProfileForm from "../User/ProfileForm";
 import Profile from "../User/Profile";
-import Swipe from "../Match/Swipe";
+import Swipe from "../Swipe";
 import Matches from "../Match/Matches";
 import Messages from "../Messages/Message";
 import NotFound from "../Common/NotFound";
@@ -26,7 +26,7 @@ import NotFound from "../Common/NotFound";
 
 // handleSwipe?
 function RoutesList({ handleLogin, handleRegister, handleUpdate }) {
-  const  currUser  = useContext(userContext);
+  const { currUser } = useContext(userContext);
 
   function authRoutes() {
     return (

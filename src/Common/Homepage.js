@@ -1,7 +1,7 @@
 import "./Homepage.css";
 import { Link } from "react-router-dom";
-// import { useContext } from "react";
-// import userContext from "../User/userContext";
+import { useContext } from "react";
+import userContext from "../User/userContext";
 
 /** Render Friender homepage
  *
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
  * Routes -> Homepage
  */
 function Homepage() {
-  //  const { currUser } = useContext(userContext);
+   const { currUser } = useContext(userContext);
 
    return (
     <section className="Homepage">
