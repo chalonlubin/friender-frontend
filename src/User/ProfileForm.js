@@ -6,6 +6,7 @@ import userContext from "./userContext";
 import Alerts from "../Common/Alerts";
 import { toast } from "react-toastify";
 import TOAST_DEFAULTS from "../Helpers/toastSettings";
+import { useNavigate } from "react-router-dom";
 
 /** ProfileForm: Form for updating user profile.
  *
@@ -14,20 +15,20 @@ import TOAST_DEFAULTS from "../Helpers/toastSettings";
  *
  * App -> RouteList -> ProfileForm
  **/
-function ProfileForm({ updateUser }) {
-  const { user } = useContext(userContext);
+function ProfileForm({ handleUpdate }) {
+  const navigate = useNavigate();
+  const { currUser } = useContext(userContext);
+  const user = currUser.user;
+
+  console.log("user", user);
+
   const [err, setErr] = useState(null);
-
-  const [status, setStatus] = useState({
-    updateMsg: [],
-    errors: [],
-  });
-
   const [formData, setFormData] = useState({
     username: user.username,
-    firstName: user.firstName,
-    lastName: user.lastName,
-    email: user.email,
+    interests: user.interests,
+    hobbies: user.hobbies,
+    location: user.location,
+    radius: user.radius
   });
 
   /** Update form data field */
@@ -44,11 +45,12 @@ function ProfileForm({ updateUser }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      await updateUser(formData);
-      setStatus({ updateMsg: ["Updated successfully."], errors: [] });
+      await handleUpdate(formData);
+      navigate("profile");
+      toast("✅ Update Successful!", TOAST_DEFAULTS);
+
     } catch (e) {
-      setStatus({ updateMsg: [], errors: e });
-      toast("❌ Update Failed!", TOAST_DEFAULTS);
+      setErr(e);
     }
   }
 
