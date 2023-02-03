@@ -18,6 +18,11 @@ import {
  * @returns
  */
 function UserCard({ user }) {
+
+  let date = new Date(`${user.lastLoginAt}`);
+  date = date.toLocaleString();
+
+
   return (
     <div className="UserCard d-flex justify-content-center">
       <div className="card-body text-center mx-3 my-3">
@@ -33,7 +38,8 @@ function UserCard({ user }) {
         <label htmlFor="interests">Hobbies</label>
         <p className="card-text">{user.interests}</p>
         <p class="card-text">
-          <small class="text-muted">{user.lastLoginAt}</small>
+          {/*TODO: make last login look a bit friendlier?*/}
+          <small class="text-muted">Last Login @ {date.toString()}</small>
         </p>
       </div>
     </div>

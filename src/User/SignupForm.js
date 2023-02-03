@@ -86,6 +86,7 @@ function Signup({ handleRegister }) {
               id="username"
               name="username"
               value={formData.username}
+              required
             />
             <label className="d-flex float-left m-2" htmlFor="password">
               <b>Password</b>
@@ -97,6 +98,7 @@ function Signup({ handleRegister }) {
               id="password"
               name="password"
               value={formData.password}
+              required
             />
             <label className="d-flex float-left m-2" htmlFor="interests">
               <b>Interests</b>
@@ -129,6 +131,7 @@ function Signup({ handleRegister }) {
               className="form-control"
               id="image"
               name="image"
+              required
             />
             <label className="d-flex float-left m-2" htmlFor="location">
               <b>Zip Code</b>
@@ -140,6 +143,7 @@ function Signup({ handleRegister }) {
               id="location"
               name="location"
               value={formData.location}
+              required
             />
             <label className="d-flex float-left m-2" htmlFor="radius">
               <b>Preferred Radius</b>
@@ -152,11 +156,12 @@ function Signup({ handleRegister }) {
               name="radius"
               value={formData.radius}
             >
-              <option value="5">5</option>
               <option value="10">10</option>
-              <option value="25">15</option>
+              <option value="20">20</option>
               <option value="50">50</option>
               <option value="100">100</option>
+              <option value="250">250</option>
+              <option value="500">500</option>
             </select>
           </div>
           <button type="submit" className="btn btn-primary mt-3">
