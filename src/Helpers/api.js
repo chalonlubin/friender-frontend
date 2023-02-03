@@ -11,8 +11,6 @@ class FrienderApi {
   static async request(endpoint, data = {}, method = "get") {
     console.debug("API Call:", endpoint, data, method);
 
-    console.log("Frienderapi data", data instanceof FormData);
-
     const url = `${BASE_URL}/${endpoint}`;
     const headers = {
       Authorization: `Bearer ${FrienderApi.token}`,
@@ -64,7 +62,7 @@ class FrienderApi {
    */
   static async recordSwipe(liker, likee, match) {
     let res = await this.request(
-      `matches/${liker.username}`,
+      `matches/${liker}`,
       { likee, match },
       "post"
     );
@@ -77,11 +75,16 @@ class FrienderApi {
    *  - data = {location, radius}
    */
 
-  static async getPotentials(user) {
-    let res = await this.request(
-      `users/${user.username}/potentials?location=${user.location}&radius=${user.radius}`
+  static async getMatchData(userData) {
+    let resPotentials = await this.request(
+      `users/${userData.username}/potentials?location=${userData.location}&radius=${userData.radius}`
     );
-    return res.users;
+    let resMatches = await this.request(`users/${userData.username}/matches`);
+
+    const potentials = resPotentials.users;
+    const matches = resMatches.matches;
+
+    return {matches, potentials};
   }
 
   /** Get all of a users matches (users they have liked and have liked them)

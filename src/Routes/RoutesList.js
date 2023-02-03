@@ -26,7 +26,7 @@ import Chums from "../Match/Chums";
 
 // handleSwipe?
 function RoutesList({ handleLogin, handleRegister, handleUpdate, handleSwipe }) {
-  const { currUser } = useContext(userContext);
+  const currUser = useContext(userContext);
 
   function authRoutes() {
     return (

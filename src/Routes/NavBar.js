@@ -13,7 +13,7 @@ import userContext from "../User/userContext";
  * App -> NavBar
  */
 function NavBar({ handleLogout }) {
-  const { currUser } = useContext(userContext);
+  const currUser = useContext(userContext);
 
   function logOutUser() {
     handleLogout();
@@ -66,7 +66,7 @@ function NavBar({ handleLogout }) {
                 </li>
                 <li className="nav-item ">
                   <NavLink className="nav-link" onClick={logOutUser} to="/">
-                    Log Out {currUser.username}
+                    Log Out {currUser.user.username}
                   </NavLink>
                 </li>
               </>

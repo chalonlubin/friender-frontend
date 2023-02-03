@@ -27,8 +27,7 @@ function App() {
     localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY)
   );
   const [isLoading, setIsLoading] = useState(true);
-  const [potentials, setPotentials] = useState(null);
-  const [matches, setMatches] = useState(null)
+  const [toggleSwipe, setToggleSwipe] = useState(false);
 
   async function handleLogin(data) {
     const token = await FrienderApi.loginUser(data);
@@ -37,7 +36,6 @@ function App() {
   }
 
   async function handleRegister(data) {
-    console.log("register", data);
     const token = await FrienderApi.registerUser(data);
     handleToken(token);
     setCurrToken(token);
@@ -51,17 +49,14 @@ function App() {
   }
 
   async function handleUpdate(data) {
-    const newUserInfo = await FrienderApi.updateUser(currUser.username, data);
+    const newUserInfo = await FrienderApi.updateUser(currUser.user.username, data);
     setCurrUser((prevInfo) => ({ ...prevInfo, ...newUserInfo }));
     toast("👍 Update Successful!", TOAST_DEFAULTS);
   }
 
   async function handleSwipe(likee, status) {
-    await FrienderApi.recordSwipe(currUser.username, likee, status);
-    const newMatches = await FrienderApi.getMatches(currUser.username);
-    const newPotentials = await FrienderApi.getPotentials(currUser);
-    setMatches(newMatches);
-    setPotentials(newPotentials);
+    await FrienderApi.recordSwipe(currUser.user.username, likee, status);
+    setToggleSwipe(!toggleSwipe)
   }
 
   function handleToken(token) {
@@ -76,7 +71,8 @@ function App() {
         FrienderApi.token = currToken;
         const { username } = jwt_decode(currToken);
         const user = await FrienderApi.getUser(username);
-        setCurrUser({ user });
+        const matchData = await FrienderApi.getMatchData(user)
+        setCurrUser({user, ...matchData});
         setIsLoading(false);
       }
       if (currToken !== null) {
@@ -85,7 +81,7 @@ function App() {
         setIsLoading(false);
       }
     },
-    [currToken]
+    [currToken, toggleSwipe]
   );
 
   console.log("currUser", currUser);
@@ -95,7 +91,7 @@ function App() {
   return (
     <div className="App">
       <div className="Friender">
-        <userContext.Provider value={{ currUser, potentials, matches }}>
+        <userContext.Provider value={ currUser }>
           <BrowserRouter>
             <ToastContainer />
             <NavBar handleLogout={handleLogout} />

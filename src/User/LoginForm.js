@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import Alerts from "../Common/Alerts";
 import userContext from "./userContext";
@@ -23,7 +23,6 @@ import TOAST_DEFAULTS from "../Helpers/toastSettings";
  */
 function Login({ handleLogin }) {
   const navigate = useNavigate();
-  const { currUser } = useContext(userContext);
 
   const initialState = {
     username: "",
@@ -53,7 +52,6 @@ function Login({ handleLogin }) {
     setFormData(initialState);
   }
 
-  console.log("err", err)
   return (
     <div className="Login d-flex justify-content-center p-3">
       <div className="col-lg-4 col-12">

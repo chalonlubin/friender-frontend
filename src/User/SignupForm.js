@@ -23,9 +23,10 @@ import userContext from "./userContext";
  * RoutesList -> SignupForm -> Errors
  */
 function Signup({ handleRegister }) {
+  const currUser = useContext(userContext);
   const navigate = useNavigate();
   const formData = new FormData();
-
+  console.log("signup", currUser)
 
   // TODO: location and radius must be coerced to integer
   const initialState = {
@@ -65,6 +66,8 @@ function Signup({ handleRegister }) {
     }
     setInputData(initialState);
   }
+
+  if (currUser) return <Navigate to="/"/>
 
   return (
     <div className="d-flex justify-content-center p-3">

@@ -5,6 +5,7 @@ import {
   CardText,
   ListGroup,
   ListGroupItem,
+  CardImg,
 } from "reactstrap";
 
 /**
@@ -19,15 +20,12 @@ function UserCard({ user }) {
   return(
     <>
       <CardBody>
-      <CardTitle className="fw-bold text-center">Menu</CardTitle>
-      <CardText>Click a menu item for further details.</CardText>
-      {/* <ListGroup>
-        {items.map((menuItem) => (
-          <Link to={`/${category}/${menuItem.id}`} key={menuItem.id}>
-            <ListGroupItem>{menuItem.name}</ListGroupItem>
-          </Link>
-        ))}
-      </ListGroup> */}
+        <CardImg src={user.image} ></CardImg>
+        <CardTitle className="fw-bold text-center">{user.username}</CardTitle>
+        <label htmlFor="interests">Interests</label>
+        <CardText name="interests">{user.interests}</CardText>
+        <label htmlFor="interests">Hobbies</label>
+        <CardText name="interests">{user.hobbies}</CardText>
       </CardBody>
     </>
   )

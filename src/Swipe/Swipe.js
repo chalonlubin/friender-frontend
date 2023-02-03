@@ -1,26 +1,22 @@
-import { useState, useContext} from "react";
+import { useState, useContext } from "react";
 import { Card } from "reactstrap";
 import UserCard from "./UserCard";
 import userContext from "../User/userContext";
-
 
 /**
  * potentials -- [{user}]
  * @returns
  */
 function Swipe({ handleSwipe }) {
-  const { potentials } = useContext(userContext);
+  const currUser = useContext(userContext);
+  const potentials = currUser.potentials;
+  // const initialState =
+
   const [user, setUser] = useState(
     potentials[Math.floor(Math.random() * potentials.length)]
   );
 
-  console.log('user',user);
-  console.log('potentials',potentials);
-
-  // function getUser() {
-  //   const user = potentials[Math.floor(Math.random() * potentials.length)];
-  //   setUser(user);
-  // }
+  console.log("potentials", potentials);
 
   // handleSwipe will -- update match table, refetch potential refetch matches
   async function handleClick(evt) {
@@ -36,23 +32,29 @@ function Swipe({ handleSwipe }) {
   return (
     <section className="col-md-4">
       <Card>
-        <UserCard user={user} />
-        <div className="d-flex ">
-          <button
-            onClick={handleClick}
-            value={false}
-            className="addBtn btn btn-secondary m-1"
-          >
-            Dislike
-          </button>
-          <button
-            onClick={handleClick}
-            value={true}
-            className="addBtn btn btn-secondary m-1"
-          >
-            Like
-          </button>
-        </div>
+        {potentials.length > 0 ? (
+          <>
+            <UserCard user={user} />
+            <div className="d-flex justify-content-center">
+              <button
+                onClick={handleClick}
+                value={false}
+                className="addBtn btn btn-secondary m-1"
+              >
+                Dislike
+              </button>
+              <button
+                onClick={handleClick}
+                value={true}
+                className="addBtn btn btn-secondary m-1"
+              >
+                Like
+              </button>
+            </div>
+          </>
+        ) : (
+          <p>No more chum</p>
+        )}
       </Card>
     </section>
   );
