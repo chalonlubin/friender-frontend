@@ -58,10 +58,12 @@ function Signup({ handleRegister }) {
 
       await handleRegister(formData);
       navigate("/");
+      toast("✅ Sign-up Successful!", TOAST_DEFAULTS);
+      setInputData(initialState);
+
     } catch (err) {
       setErr(err);
     }
-    setInputData(initialState);
   }
 
   if (currUser) return <Navigate to="/" />;

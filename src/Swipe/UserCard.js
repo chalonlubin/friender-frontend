@@ -37,9 +37,9 @@ function UserCard({ user }) {
         <p className="card-text">{user.hobbies}</p>
         <label htmlFor="interests">Hobbies</label>
         <p className="card-text">{user.interests}</p>
-        <p class="card-text">
+        <p className="card-text">
           {/*TODO: make last login look a bit friendlier?*/}
-          <small class="text-muted">Last Login @ {date.toString()}</small>
+          <small className="text-muted">Last Login @ {date.toString()}</small>
         </p>
       </div>
     </div>
