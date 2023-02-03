@@ -22,15 +22,15 @@ function NavBar({ handleLogout }) {
   // could add two functions to return login nav /logout nav
   // function authNav() {
     return (
-      <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light ">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light ">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           <img
             src="logo512.png"
             alt="chum icon"
             className="d-inline-block m-2"
-            width="30"
-            height="24"
+            width="40"
+            height="32"
           ></img>
           Chum Bucket
         </NavLink>

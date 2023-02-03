@@ -64,7 +64,7 @@ function Signup({ handleRegister }) {
       setErr(err);
     }
   }
-  console.log(err)
+
   if (currUser) return <Navigate to="/" />;
 
   return (
