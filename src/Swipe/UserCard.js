@@ -34,9 +34,9 @@ function UserCard({ user }) {
         <h3 className="py-4">{user.username}</h3>
         <h5 className="card-title">{user.username}</h5>
         <label htmlFor="interests">Interests</label>
-        <p className="card-text">{user.hobbies}</p>
-        <label htmlFor="interests">Hobbies</label>
         <p className="card-text">{user.interests}</p>
+        <label htmlFor="interests">Hobbies</label>
+        <p className="card-text">{user.hobbies}</p>
         <p className="card-text">
           {/*TODO: make last login look a bit friendlier?*/}
           <small className="text-muted">Last Login @ {date.toString()}</small>

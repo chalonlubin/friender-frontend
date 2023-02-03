@@ -17,24 +17,23 @@ import { useNavigate } from "react-router-dom";
  **/
 function ProfileForm({ handleUpdate }) {
   const navigate = useNavigate();
-  const { currUser } = useContext(userContext);
-  const user = currUser.user;
+  const { user } = useContext(userContext);
+  const formData = new FormData();
 
   console.log("user", user);
 
   const [err, setErr] = useState(null);
-  const [formData, setFormData] = useState({
-    username: user.username,
+  const [inputData, setInputData] = useState({
     interests: user.interests,
     hobbies: user.hobbies,
     location: user.location,
-    radius: user.radius
+    radius: user.radius,
   });
 
   /** Update form data field */
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setFormData((f) => ({ ...f, [name]: value }));
+    setInputData((f) => ({ ...f, [name]: value }));
   }
 
   /** Handle form submission:
@@ -45,9 +44,13 @@ function ProfileForm({ handleUpdate }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
+      for (let fieldName in inputData) {
+        formData.append(fieldName, inputData[fieldName]);
+      }
+      formData.append("image", document.querySelector("#image").files[0]);
+
       await handleUpdate(formData);
       navigate("profile");
-      toast("✅ Update Successful!", TOAST_DEFAULTS);
 
     } catch (e) {
       setErr(e);
@@ -57,7 +60,7 @@ function ProfileForm({ handleUpdate }) {
   return (
     <div className="SignupForm d-flex justify-content-center p-3">
       <div className="col-lg-4 col-12">
-        <h1 className="form-header">Sign Up</h1>
+        <h1 className="form-header">Edit Profile</h1>
         <form onSubmit={handleSubmit} className="bg-light rounded p-3">
           <div className="form-group">
             {err &&  <Alerts err={err} />}
@@ -70,19 +73,8 @@ function ProfileForm({ handleUpdate }) {
               className="form-control"
               id="username"
               name="username"
-              value={formData.username}
+              value={user.username}
               disabled
-            />
-            <label className="d-flex float-left m-2" htmlFor="password">
-              <b>Password</b>
-            </label>
-            <input
-              onChange={handleChange}
-              type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              value={formData.password}
             />
             <label className="d-flex float-left m-2" htmlFor="interests">
               <b>Interests</b>
@@ -93,7 +85,7 @@ function ProfileForm({ handleUpdate }) {
               className="form-control"
               id="interests"
               name="interests"
-              value={formData.interests}
+              value={inputData.interests}
             />
             <label className="d-flex float-left m-2" htmlFor="hobbies">
               <b>Hobbies</b>
@@ -104,7 +96,7 @@ function ProfileForm({ handleUpdate }) {
               className="form-control"
               id="hobbies"
               name="hobbies"
-              value={formData.hobbies}
+              value={inputData.hobbies}
             />
             <label className="d-flex float-left m-2" htmlFor="image">
               <b>Image</b>
@@ -115,7 +107,7 @@ function ProfileForm({ handleUpdate }) {
               className="form-control"
               id="image"
               name="image"
-              value={formData.image}
+              value={inputData.image}
             />
             <label className="d-flex float-left m-2" htmlFor="location">
               <b>Zip Code</b>
@@ -126,7 +118,7 @@ function ProfileForm({ handleUpdate }) {
               className="form-control"
               id="location"
               name="location"
-              value={formData.location}
+              value={inputData.location}
             />
             <label className="d-flex float-left m-2" htmlFor="radius">
               <b>Preferred Radius</b>
@@ -137,7 +129,7 @@ function ProfileForm({ handleUpdate }) {
               className="form-control"
               id="radius"
               name="radius"
-              value={formData.radius}
+              value={inputData.radius}
             >
               <option value="5">5</option>
               <option value="10">10</option>
