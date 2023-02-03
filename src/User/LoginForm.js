@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Alerts from "../Common/Alerts";
-import userContext from "./userContext";
-import { toast } from "react-toastify";
-import TOAST_DEFAULTS from "../Helpers/toastSettings";
+
 
 /** Render login form and navigate to homepage on successful login
  * else show errors
@@ -33,7 +31,6 @@ function Login({ handleLogin }) {
 
   function handleChange(evt) {
     const { name, value } = evt.target;
-
     setFormData((formData) => ({
       ...formData,
       [name]: value,
@@ -45,7 +42,6 @@ function Login({ handleLogin }) {
     try {
       await handleLogin(formData);
       navigate("/")
-      toast("🚀 Login Successful!", TOAST_DEFAULTS);
     } catch (err) {
       setErr(err);
     }

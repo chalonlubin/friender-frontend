@@ -61,11 +61,7 @@ class FrienderApi {
    * Returns {liker, likee, matchStatus (bool)}
    */
   static async recordSwipe(liker, likee, match) {
-    let res = await this.request(
-      `matches/${liker}`,
-      { likee, match },
-      "post"
-    );
+    let res = await this.request(`matches/${liker}`, { likee, match }, "post");
 
     return res.matchStatus;
   }
@@ -84,7 +80,7 @@ class FrienderApi {
     const potentials = resPotentials.users;
     const matches = resMatches.matches;
 
-    return {matches, potentials};
+    return { matches, potentials };
   }
 
   /** Get all of a users matches (users they have liked and have liked them)

@@ -26,7 +26,6 @@ function Signup({ handleRegister }) {
   const currUser = useContext(userContext);
   const navigate = useNavigate();
   const formData = new FormData();
-  console.log("signup", currUser)
 
   // TODO: location and radius must be coerced to integer
   const initialState = {
@@ -53,27 +52,28 @@ function Signup({ handleRegister }) {
     evt.preventDefault();
     try {
       for (let fieldName in inputData) {
-        formData.append(fieldName, inputData[fieldName])
+        formData.append(fieldName, inputData[fieldName]);
       }
-      formData.append("image", document.querySelector("#image").files[0])
+      formData.append("image", document.querySelector("#image").files[0]);
 
       await handleRegister(formData);
       navigate("/");
-      toast("✅ Sign-up Successful!", TOAST_DEFAULTS);
-
     } catch (err) {
       setErr(err);
     }
     setInputData(initialState);
   }
 
-  if (currUser) return <Navigate to="/"/>
+  if (currUser) return <Navigate to="/" />;
 
   return (
     <div className="d-flex justify-content-center p-3">
       <div className="col-lg-4 col-12">
         <h1 className="form-header">Sign Up</h1>
-        <form onSubmit={handleSubmit} className="SignupForm bg-light rounded p-3">
+        <form
+          onSubmit={handleSubmit}
+          className="SignupForm bg-light rounded p-3"
+        >
           <div className="form-group">
             {err && <Alerts err={err} />}
             <label className="d-flex float-left m-2" htmlFor="username">

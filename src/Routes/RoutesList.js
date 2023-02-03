@@ -5,7 +5,7 @@ import Homepage from "../Common/Homepage";
 import Login from "../User/LoginForm";
 import Signup from "../User/SignupForm";
 import ProfileForm from "../User/ProfileForm";
-import Profile from "../User/Profile";
+import ProfileCard from "../User/ProfileCard";
 import Swipe from "../Swipe/Swipe";
 import Messages from "../Messages/Message";
 import NotFound from "../Common/NotFound";
@@ -31,7 +31,7 @@ function RoutesList({ handleLogin, handleRegister, handleUpdate, handleSwipe }) 
   function authRoutes() {
     return (
       <>
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<ProfileCard />} />
         <Route path="/profile/edit" element={<ProfileForm handleUpdate={handleUpdate} />} />
         <Route path="/swipe" element={<Swipe handleSwipe={handleSwipe} />} />
         <Route path="/chums" element={<Chums />} />
