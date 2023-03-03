@@ -1,4 +1,4 @@
-# Getting Started with Chum Bucket (FKA Friender)
+# Getting Started with Friender)
 
 Deployed on: https://asanchez-chum-bucket.surge.sh/
 
