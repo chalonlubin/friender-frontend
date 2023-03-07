@@ -1,6 +1,7 @@
 # Getting Started with Friender)
 
 Deployed on: https://asanchez-chum-bucket.surge.sh/
+To access Friender backend codebase: https://github.com/amaesanchez/Friender-backend
 
 ### To run app locally
 
