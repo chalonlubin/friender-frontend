@@ -67,6 +67,7 @@ function App() {
     const token = await FrienderApi.loginUser(data);
     handleToken(token);
     setCurrToken(token);
+    console.log("handleLogin", currToken);
     toast("🚀 Login Successful!", TOAST_DEFAULTS);
   }
 
@@ -97,6 +98,7 @@ function App() {
   /** Store token in localStorage, update loading state */
   function handleToken(token) {
     localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, token);
+    console.log("handleToken");
     setIsLoading(true);
   }
 

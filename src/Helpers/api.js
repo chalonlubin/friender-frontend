@@ -10,7 +10,7 @@ class FrienderApi {
   static token;
 
   static async request(endpoint, data = {}, method = "get") {
-    console.debug("API Call:", endpoint, data, method);
+    console.debug("API Call:", BASE_URL, endpoint, data, method);
 
     const url = `${BASE_URL}/${endpoint}`;
     const headers = {
@@ -19,6 +19,8 @@ class FrienderApi {
         data instanceof FormData ? "multipart/form-data" : "application/json",
     };
     const params = method === "get" ? data : {};
+
+    console.debug(url, method, data, params, headers)
 
     try {
       return (await axios({ url, method, data, params, headers })).data;
@@ -38,7 +40,6 @@ class FrienderApi {
    *  Return token
    */
   static async loginUser(data) {
-    debugger
     let res = await this.request(`auth/token`, data, "post");
     return res.token;
   }
@@ -64,7 +65,6 @@ class FrienderApi {
    */
   static async recordSwipe(liker, likee, match) {
     let res = await this.request(`matches/${liker}`, { likee, match }, "post");
-
     return res.matchStatus;
   }
 
