@@ -1,6 +1,6 @@
 # Getting Started with Friender)
 
-Deployed on: https://asanchez-chum-bucket.surge.sh/
+Deployed on: https://friender-adventure.onrender.com/
 
 To access Friender backend codebase: https://github.com/amaesanchez/Friender-backend
 
