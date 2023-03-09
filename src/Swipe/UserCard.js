@@ -31,8 +31,7 @@ function UserCard({ user }) {
           src={user.image}
           alt={user.image}
         />
-        <h3 className="py-4">{user.username}</h3>
-        <h5 className="card-title">{user.username}</h5>
+        <p className="card-name py-2">{user.username}</p>
         <label htmlFor="interests">Interests</label>
         <p className="card-text">{user.interests}</p>
         <label htmlFor="interests">Hobbies</label>
@@ -47,13 +46,3 @@ function UserCard({ user }) {
 }
 
 export default UserCard;
-//     <>
-//   <CardBody>
-//     <CardImg className="UserCard" src={user.image} ></CardImg>
-//     <CardTitle className="fw-bold text-center">{user.username}</CardTitle>
-//     <label htmlFor="interests">Interests</label>
-//     <CardText name="interests">{user.interests}</CardText>
-//     <label htmlFor="interests">Hobbies</label>
-//     <CardText name="interests">{user.hobbies}</CardText>
-//   </CardBody>
-// </>

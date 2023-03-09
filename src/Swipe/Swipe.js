@@ -62,7 +62,7 @@ function Swipe({ handleSwipe }) {
           </>
         </Card>
       )}
-      {potentials.length === 0 && <h3>Oh no, you've run outta chums!</h3>}
+      {potentials.length === 0 && <h5 class="press2p">Oh no, you've run outta chums!</h5>}
     </div>
   );
 }

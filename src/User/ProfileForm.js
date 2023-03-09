@@ -60,7 +60,7 @@ function ProfileForm({ handleUpdate }) {
   return (
     <div className="SignupForm d-flex justify-content-center p-3">
       <div className="col-lg-4 col-12">
-        <h1 className="form-header">Edit Profile</h1>
+        <h1 className="Edit form-header">Edit Profile</h1>
         <form onSubmit={handleSubmit} className="bg-light rounded p-3">
           <div className="form-group">
             {err &&  <Alerts err={err} />}
@@ -138,7 +138,7 @@ function ProfileForm({ handleUpdate }) {
               <option value="100">100</option>
             </select>
           </div>
-          <button type="submit" className="btn btn-primary mt-3">
+          <button type="submit" className="btn btn-go mt-3">
             Submit
           </button>
         </form>

@@ -37,6 +37,7 @@ class FrienderApi {
    *  Return token
    */
   static async loginUser(data) {
+    debugger
     let res = await this.request(`auth/token`, data, "post");
     return res.token;
   }

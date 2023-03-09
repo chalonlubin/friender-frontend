@@ -51,7 +51,7 @@ function Login({ handleLogin }) {
   return (
     <div className="Login d-flex justify-content-center p-3">
       <div className="col-lg-4 col-12">
-        <h1 className="Login-form-header">Log In</h1>
+        <h3 className="Login form-header press2p">Log In</h3>
         <form onSubmit={handleSubmit} className="Login-form bg-light rounded p-3">
           <div className="form-group">
             {err && <Alerts err={err} />}
@@ -78,7 +78,7 @@ function Login({ handleLogin }) {
               value={formData.password}
             />
           </div>
-          <button type="submit" className="Login-submit btn btn-primary mt-3">
+          <button type="submit" className="Login-submit btn btn-go mt-3">
             Submit
           </button>
         </form>

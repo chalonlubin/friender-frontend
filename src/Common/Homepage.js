@@ -16,7 +16,7 @@ function Homepage() {
    return (
     <section className="Homepage">
     <div className="Homepage-content">
-      <h1 className="Homepage-title"> Welcome to the Chum Bucket! </h1>
+      <h1 className="Homepage-title"> Welcome to Only Friends. </h1>
           <h2 className="Homepage-subtitle">
             Squad Up!
           </h2>

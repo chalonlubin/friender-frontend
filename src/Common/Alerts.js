@@ -9,6 +9,7 @@
  * App -> RouteList -> {SignupForm, LoginForm, ProfileForm} -> Alert
  **/
 function Alerts({ err }) {
+  console.log("err", err)
   return (
     <div className="Alert">
       <div className={`alert alert-danger`} role="alert">
