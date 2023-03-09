@@ -62,9 +62,9 @@ function NavBar({ handleLogout }) {
                     Profile
                   </NavLink>
                 </li>
-                <li className="nav-item ">
-                  <NavLink className="nav-link" onClick={logOutUser} to="/">
-                    Log Out {currUser.user.username}
+                <li className="nav-item">
+                  <NavLink className="btn btn-outline-warning nav-link" onClick={logOutUser} to="/">
+                    LogOut
                   </NavLink>
                 </li>
               </>
