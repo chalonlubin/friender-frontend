@@ -14,13 +14,11 @@ class FrienderApi {
 
     const url = `${BASE_URL}/${endpoint}`;
     const headers = {
-      Authorization: `Bearer ${FrienderApi.token}`,
+      "Authorization": `Bearer ${FrienderApi.token}`,
       "Content-Type":
         data instanceof FormData ? "multipart/form-data" : "application/json",
     };
     const params = method === "get" ? data : {};
-
-    console.debug(url, method, data, params, headers)
 
     try {
       return (await axios({ url, method, data, params, headers })).data;
