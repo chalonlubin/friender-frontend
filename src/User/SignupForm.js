@@ -48,7 +48,8 @@ function Signup({ handleRegister }) {
       [name]: value,
     }));
   }
-  const handleFileSelect = (event) => {
+  
+  function handleFileSelect(event) {
     setSelectedFile(event.target.files[0])
   }
 

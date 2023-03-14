@@ -28,6 +28,7 @@ function ProfileForm({ handleUpdate }) {
     hobbies: user.hobbies,
     location: user.location,
     radius: user.radius,
+    image: user.image,
   });
 
   /** Update form data field */
@@ -60,7 +61,7 @@ function ProfileForm({ handleUpdate }) {
   return (
     <div className="SignupForm d-flex justify-content-center p-3">
       <div className="col-lg-4 col-12">
-        <h1 className="Edit form-header">Edit Profile</h1>
+        <h1 className="Edit form-header press2p">Edit Profile</h1>
         <form onSubmit={handleSubmit} className="bg-light rounded p-3">
           <div className="form-group">
             {err &&  <Alerts err={err} />}
@@ -107,7 +108,7 @@ function ProfileForm({ handleUpdate }) {
               className="form-control"
               id="image"
               name="image"
-              value={inputData.image}
+              value=""
             />
             <label className="d-flex float-left m-2" htmlFor="location">
               <b>Zip Code</b>

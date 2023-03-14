@@ -6,3 +6,6 @@
   -webkit-transform: translate(-50%, -50%);
 }
 
+.Swipe > h5 {
+  color: white;
+}

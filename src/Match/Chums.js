@@ -16,7 +16,7 @@ function Chums() {
         //   <img className="chumPic" src={match.image} alt={match.username} />
         // </div>
       ))}
-      {matches.length === 0 && <h5 className="ChumMsg press2p">No chums.</h5>}
+      {matches.length === 0 && <h5 className="ChumMsg press2p">No matches.</h5>}
     </>
   );
 }

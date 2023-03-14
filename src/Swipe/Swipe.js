@@ -54,7 +54,7 @@ function Swipe({ handleSwipe }) {
               <button
                 onClick={handleClick}
                 value={true}
-                className="addBtn btn btn-danger m-2 px-5"
+                className="addBtn btn btn-funky-moon m-2 px-5"
               >
                 To Chum
               </button>
