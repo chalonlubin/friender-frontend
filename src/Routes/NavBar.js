@@ -21,15 +21,15 @@ function NavBar({ handleLogout }) {
 
   // could add two functions to return login nav /logout nav
   // function authNav() {
-    return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-white ">
+  return (
+    <nav className="navbar navbar-expand-lg bg-white ">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           <img
-            src="logo-no-background.png"
+            src="logo-black-on-transparent-background.png"
             alt="of icon"
             className="d-inline-block m-1"
-            height="28"
+            height="20"
           ></img>
         </NavLink>
         <button
@@ -44,7 +44,7 @@ function NavBar({ handleLogout }) {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center press2p">
+          <ul className="navbar-nav ms-auto d-flex align-items-center press2p">
             {currUser && (
               <>
                 <li className="nav-item">
@@ -63,7 +63,11 @@ function NavBar({ handleLogout }) {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="btn btn-outline-warning nav-link" onClick={logOutUser} to="/">
+                  <NavLink
+                    className="btn btn-outline-warning nav-link"
+                    onClick={logOutUser}
+                    to="/"
+                  >
                     LogOut
                   </NavLink>
                 </li>
@@ -87,38 +91,7 @@ function NavBar({ handleLogout }) {
         </div>
       </div>
     </nav>
-    );
-  }
-
-  // function unauthNav() {
-  //   return (
-  //     <ul className="navbar-nav mr-auto">
-  //       <li className="nav-item">
-  //         <NavLink to="/login">
-  //           <div className="navbar-link me-2">Log In</div>
-  //         </NavLink>
-  //       </li>
-  //       <li className="nav-item">
-  //         <NavLink to="/signup">
-  //           <div className="navbar-link me-2">Sign Up</div>
-  //         </NavLink>
-  //       </li>
-  //     </ul>
-  //   );
-  // }
-
-  // return (
-  //   <div>
-  //     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  //       <div className="container-fluid">
-  //         <NavLink to="/">
-  //           <div className="navbar-brand">Friender</div>
-  //         </NavLink>
-  //         {currUser ? authNav() : unauthNav()}
-  //       </div>
-  //     </nav>
-  //   </div>
-  // );
-
+  );
+}
 
 export default NavBar;

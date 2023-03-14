@@ -74,7 +74,7 @@ function Signup({ handleRegister }) {
   if (currUser) return <Navigate to="/" />;
 
   return (
-    <div className="d-flex justify-content-center p-3">
+    <div className="SignupForm d-flex justify-content-center p-3">
       <div className="col-lg-4 col-12">
         <h3 className="Signup form-header press2p">Sign Up</h3>
         <form
