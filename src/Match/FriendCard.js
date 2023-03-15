@@ -1,4 +1,4 @@
-import  "./ChumCard.css";
+import  "./FriendCard.css";
 function ChumCard({match}) {
   return (
     <div className="d-flex justify-content-start card-deck">

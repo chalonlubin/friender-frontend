@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import userContext from "../User/userContext";
 import { v4 as uuid } from "uuid";
-import ChumCard from "./ChumCard";
+import FriendCard from "./FriendCard";
 
-function Chums() {
+function Friends() {
   const currUser = useContext(userContext);
   const matches = currUser.matches;
 
@@ -11,7 +11,7 @@ function Chums() {
     <>
       {matches.map((match) => (
 
-        <ChumCard key={uuid()} match={match} />
+        <FriendCard key={uuid()} match={match} />
         // <div key={uuid()}>
         //   <img className="chumPic" src={match.image} alt={match.username} />
         // </div>
@@ -21,4 +21,4 @@ function Chums() {
   );
 }
 
-export default Chums;
+export default Friends;

@@ -9,7 +9,7 @@ import ProfileCard from "../User/ProfileCard";
 import Swipe from "../Swipe/Swipe";
 import Messages from "../Messages/Message";
 import NotFound from "../Common/NotFound";
-import Chums from "../Match/Chums";
+import Friends from "../Match/Friends";
 
 /** Set up Friender routes
  *
@@ -34,7 +34,7 @@ function RoutesList({ handleLogin, handleRegister, handleUpdate, handleSwipe }) 
         <Route path="/profile" element={<ProfileCard />} />
         <Route path="/profile/edit" element={<ProfileForm handleUpdate={handleUpdate} />} />
         <Route path="/swipe" element={<Swipe handleSwipe={handleSwipe} />} />
-        <Route path="/chums" element={<Chums />} />
+        <Route path="/chums" element={<Friends />} />
         <Route path="/messages/:matchedUser" element={<Messages />} />
       </>
     );
