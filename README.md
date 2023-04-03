@@ -1,6 +1,6 @@
 # Friender
 
-Tinder like full friend matching application. 
+Tinder like full-stack friend matching application. 
 
 [Backend repo](https://github.com/chalonlubin/friender-backend)
 
