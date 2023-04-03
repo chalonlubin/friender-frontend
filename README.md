@@ -2,8 +2,6 @@
 
 Tinder like full friend matching application. 
 
-Built in 3.5 days as part of a sprint w/ @amaesanchez while attending Rithm School.
-
 [Backend repo](https://github.com/chalonlubin/friender-backend)
 
 [Demo Here](https://friender-ccl.surge.sh/) Deployed with Render and Surge.
