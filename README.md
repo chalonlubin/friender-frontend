@@ -1,6 +1,6 @@
 # Friender
 
-Tinder like full-stack friend matching application. 
+Friender is a Tinder like full-stack friend matching application, where users can register, login, swipe and view their matches.
 
 [Backend repo](https://github.com/chalonlubin/friender-backend)
 
