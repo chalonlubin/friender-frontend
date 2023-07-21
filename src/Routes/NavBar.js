@@ -22,13 +22,12 @@ function NavBar({ handleLogout }) {
   // could add two functions to return login nav /logout nav
   // function authNav() {
   return (
-    <nav className="navbar navbar-expand-lg bg-white ">
+    <nav className="navbar navbar-expand-lg bg-light ">
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">
+        <NavLink className="navbar-brand px-1" to="/">
           <img
             src="logo-black-on-transparent-background.png"
             alt="of icon"
-            className="d-inline-block m-1"
             height="20"
           ></img>
         </NavLink>
@@ -43,8 +42,8 @@ function NavBar({ handleLogout }) {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav ms-auto d-flex align-items-center press2p">
+        <div className="collapse navbar-collapse pt-4" id="navbarTogglerDemo02">
+          <ul className="navbar-nav ms-auto d-flex align-items-center gap-4">
             {currUser && (
               <>
                 <li className="nav-item">
@@ -54,7 +53,7 @@ function NavBar({ handleLogout }) {
                 </li>
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/chums">
-                    Chums
+                    Friends
                   </NavLink>
                 </li>
                 <li className="nav-item">
@@ -68,7 +67,7 @@ function NavBar({ handleLogout }) {
                     onClick={logOutUser}
                     to="/"
                   >
-                    LogOut
+                    Log Out
                   </NavLink>
                 </li>
               </>
@@ -76,13 +75,19 @@ function NavBar({ handleLogout }) {
             {!currUser && (
               <>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/login">
-                    Login
+                  <NavLink className=" btn btn-light btn-sm" to="/login">
+                    LOGIN
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/signup">
-                    Signup
+                  <NavLink className="btn btn-light btn-sm" to="/signup">
+                    SIGNUP
+                  </NavLink>
+                </li>
+                {/* TODO: Login as guest */}
+                <li className="nav-item">
+                  <NavLink className="btn btn-light btn-sm" to="/signup">
+                    GUEST
                   </NavLink>
                 </li>
               </>

@@ -3,42 +3,24 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import userContext from "../User/userContext";
 
-/** Render Friender homepage
- *
- * Context
- * - currUser
- *
- * Routes -> Homepage
- */
 function Homepage() {
-   const currUser = useContext(userContext);
+  const currUser = useContext(userContext);
 
-   return (
+  return (
     <section className="Homepage">
-    <div className="Homepage-content">
-      <h1 className="Homepage-title"> Welcome to Friender. </h1>
-          <h2 className="Homepage-subtitle">
-            Squad Up!
-          </h2>
+      <div className="container text-center text-white">
+        <h1 className="Homepage-title">Your best friend is just around the corner 🎆</h1>
+        <h2>Meet locals with similar interests</h2>
         {!currUser && (
-          <div className="d-flex justify-content-evenly">
-            <Link
-              className="btn btn-funky-moon btn-rounded btn-lg m-4"
-              to="/login"
-            >
-              Log in
+          <div className="d-flex justify-content-center mt-3">
+            <Link className="btn btn-funky-moon btn-rounded btn-lg" to="/signup">
+              JOIN THE PARTY
             </Link>
-            <Link
-              className="btn btn-funky-moon btn-rounded btn-lg m-4"
-              to="/signup"
-            >
-              Sign up
-            </Link>
-
           </div>
         )}
-        </div>
-      </section>
-   );
- }
- export default Homepage;
+      </div>
+    </section>
+  );
+}
+
+export default Homepage;
