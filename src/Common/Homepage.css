@@ -1,22 +1,24 @@
-.Homepage {
-  min-height: 100vh;
+/* .homepage {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(to right, #2196f3, #26c6da, #43a047);
 }
 
-.Homepage-title {
+.homepage-title {
   font-size: 4rem;
   font-weight: 900;
   margin-bottom: 1rem;
 }
 
-.Homepage-subtitle {
+.homepage-subtitle {
   font-size: 3rem;
   font-weight: 400;
   margin-top: 1rem;
 }
+
+.homep
 
 .btn-go {
   background-color: #6460da !important;
@@ -31,4 +33,4 @@
 
 .btn-rounded {
   border-radius: 10px;
-}
+} */

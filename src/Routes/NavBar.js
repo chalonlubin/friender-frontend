@@ -22,17 +22,17 @@ function NavBar({ handleLogout }) {
   // could add two functions to return login nav /logout nav
   // function authNav() {
   return (
-    <nav className="navbar navbar-expand-lg bg-light ">
-      <div className="container-fluid">
-        <NavLink className="navbar-brand px-1" to="/">
+    <nav className="navbar navbar-expand-lg bg-light h-25">
+      <div className="container-fluid px-4">
+        <NavLink className="navbar-brand" to="/">
           <img
             src="logo-black-on-transparent-background.png"
             alt="of icon"
-            height="20"
+            height="18"
           ></img>
         </NavLink>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler p-1"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarTogglerDemo02"
@@ -42,8 +42,8 @@ function NavBar({ handleLogout }) {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse pt-4" id="navbarTogglerDemo02">
-          <ul className="navbar-nav ms-auto d-flex align-items-center gap-4">
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul className="navbar-nav ms-auto d-flex align-items-center gap-3">
             {currUser && (
               <>
                 <li className="nav-item">
@@ -62,11 +62,7 @@ function NavBar({ handleLogout }) {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink
-                    className="btn btn-outline-warning nav-link"
-                    onClick={logOutUser}
-                    to="/"
-                  >
+                  <NavLink className="nav-link" onClick={logOutUser} to="/">
                     Log Out
                   </NavLink>
                 </li>

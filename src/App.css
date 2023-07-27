@@ -1,14 +1,25 @@
 /* Styles for all items in app.js */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,400;0,700;1,900&display=swap');
 
 html,
 body {
   margin: 0px;
   padding: 0px;
+  border: 3px solid rgb(53, 182, 126);
+  box-sizing: border-box;
 }
 
-.App {
-  min-height: 100vh;
+.app {
+  font-family: 'Lato', sans-serif;
+  border: 3px solid red;
+}
+
+/* .app {
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 label {
@@ -44,24 +55,10 @@ label {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+} */
 
-.chumPic {
-  width: 400px;
-}
 
-.btn-go {
-  background-color: #6460da !important;
-  color: white !important;
-}
 
-.btn-funky-moon {
-  color: white;
-  background: #a770ef; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    145deg,
-    #fdb99b,
-    #cf8bf3,
-    #a770ef
-  ); /* Chrome 10-25, Safari 5.1-6 */
-}
+
+
+

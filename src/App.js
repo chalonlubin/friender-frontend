@@ -102,13 +102,13 @@ function App() {
     setIsLoading(true);
   }
 
-  // if (isLoading) return <Loading />;
+  if (isLoading) return <Loading />;
 
   return (
-    <div className="App">
-      <userContext.Provider value={currUser}>
-        <BrowserRouter>
-          <ToastContainer />
+    <userContext.Provider value={currUser}>
+      <BrowserRouter>
+        <ToastContainer />
+        <div className="app d-flex row min-vh-100">
           <NavBar handleLogout={handleLogout} />
           <RoutesList
             handleSwipe={handleSwipe}
@@ -116,9 +116,9 @@ function App() {
             handleRegister={handleRegister}
             handleUpdate={handleUpdate}
           />
-        </BrowserRouter>
-      </userContext.Provider>
-    </div>
+        </div>
+      </BrowserRouter>
+    </userContext.Provider>
   );
 }
 
