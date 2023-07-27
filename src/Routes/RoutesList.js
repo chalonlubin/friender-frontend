@@ -34,7 +34,7 @@ function RoutesList({ handleLogin, handleRegister, handleUpdate, handleSwipe }) 
         <Route path="/profile" element={<ProfileCard />} />
         <Route path="/profile/edit" element={<ProfileForm handleUpdate={handleUpdate} />} />
         <Route path="/swipe" element={<Swipe handleSwipe={handleSwipe} />} />
-        <Route path="/chums" element={<Friends />} />
+        <Route path="/friends" element={<Friends />} />
         <Route path="/messages/:matchedUser" element={<Messages />} />
       </>
     );

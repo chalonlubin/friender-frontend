@@ -1,12 +1,7 @@
-.ChumCard-image {
-  width: 150px;
-  height: 150px;
-}
-
-.ChumMsg {
+.friend-message {
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-  color: white;
+  color: black;
 }

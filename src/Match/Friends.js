@@ -10,13 +10,11 @@ function Friends() {
   return (
     <>
       {matches.map((match) => (
-
         <FriendCard key={uuid()} match={match} />
-        // <div key={uuid()}>
-        //   <img className="chumPic" src={match.image} alt={match.username} />
-        // </div>
       ))}
-      {matches.length === 0 && <h5 className="ChumMsg press2p">No matches.</h5>}
+      {matches.length === 0 && (
+        <p className="friend-message fs-4">No friends yet 😅</p>
+      )}
     </>
   );
 }

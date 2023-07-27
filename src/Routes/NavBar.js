@@ -19,8 +19,6 @@ function NavBar({ handleLogout }) {
     handleLogout();
   }
 
-  // could add two functions to return login nav /logout nav
-  // function authNav() {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid px-4">
@@ -52,7 +50,7 @@ function NavBar({ handleLogout }) {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/chums">
+                  <NavLink className="nav-link" to="/friends">
                     Friends
                   </NavLink>
                 </li>
@@ -63,7 +61,7 @@ function NavBar({ handleLogout }) {
                 </li>
                 <li className="nav-item">
                   <NavLink className="nav-link" onClick={logOutUser} to="/">
-                    Log Out
+                    Sign Out
                   </NavLink>
                 </li>
               </>
