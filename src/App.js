@@ -21,7 +21,7 @@ const LOCAL_STORAGE_TOKEN_KEY = "token";
  * State
  * - currUser - obj with user info
  * - currToken - token from API
- * - isLoading - true while loading
+ * - loading - true while loading
  * - toggleSwipe - toggles swipe component
  *
  * App -> RoutesList, NavBar
@@ -31,8 +31,10 @@ function App() {
   const [currToken, setCurrToken] = useState(
     localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY)
   );
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [toggleSwipe, setToggleSwipe] = useState(false);
+
+  console.log("loading", loading);
 
   //TODO: figure out when to get matches and get rest of users
   useEffect(
@@ -43,13 +45,12 @@ function App() {
         const user = await FrienderApi.getUser(username);
         const matchData = await FrienderApi.getMatchData(user);
         setCurrUser({ user, ...matchData });
-        setIsLoading(false);
-        setToggleSwipe(false);
+        setLoading(false);
       }
       if (currToken !== null) {
         getUser();
       } else {
-        setIsLoading(false);
+        setLoading(false);
       }
     },
     [currToken, toggleSwipe]
@@ -93,20 +94,15 @@ function App() {
   /** Record swipe in API, toggle swipe state */
   async function handleSwipe(likee, status) {
     await FrienderApi.recordSwipe(currUser.user.username, likee, status);
-    setToggleSwipe(true);
+    setToggleSwipe(!toggleSwipe);
   }
 
   /** Store token in localStorage, update loading state */
   function handleToken(token) {
     localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, token);
     console.log("handleToken");
-    setIsLoading(true);
+    setLoading(true);
   }
-
-  console.log("toggleSwipe", toggleSwipe);
-
-  if (isLoading) return <Loading />;
-  if (toggleSwipe) return <Loading />;
 
   return (
     <userContext.Provider value={currUser}>
@@ -114,12 +110,16 @@ function App() {
         <ToastContainer />
         <div className="app d-flex flex-column min-vh-100">
           <NavBar handleLogout={handleLogout} />
-          <RoutesList
-            handleSwipe={handleSwipe}
-            handleLogin={handleLogin}
-            handleRegister={handleRegister}
-            handleUpdate={handleUpdate}
-          />
+          {!loading ? (
+            <RoutesList
+              handleSwipe={handleSwipe}
+              handleLogin={handleLogin}
+              handleRegister={handleRegister}
+              handleUpdate={handleUpdate}
+            />
+          ) : (
+            <Loading />
+          )}
         </div>
       </BrowserRouter>
     </userContext.Provider>

@@ -1,4 +1,4 @@
-import { GooeyCircleLoader } from "react-loaders-kit";
+import { LiquidLoader  } from "react-loaders-kit";
 
 /** Render loading message
  *
@@ -7,14 +7,14 @@ import { GooeyCircleLoader } from "react-loaders-kit";
 function Loading() {
   const loaderProps = {
     loading: true,
-    size: 275,
+    size: 100,
     duration: 2,
     colors: ["#99fffe", "#f42e00", "#042549"],
   };
 
   return (
-    <div className="loader">
-      <GooeyCircleLoader {...loaderProps} />
+    <div className="d-flex justify-content-center align-items-center flex-grow-1">
+      <LiquidLoader  {...loaderProps} />
     </div>
   );
 }

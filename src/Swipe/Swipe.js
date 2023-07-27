@@ -28,51 +28,45 @@ function Swipe({ handleSwipe }) {
   /**  handleSwipe will -- update match table, refetch potential refetch matches */
   async function handleClick(evt) {
     evt.preventDefault();
-
     const matchStatus = evt.target.value;
     handleSwipe(user.username, matchStatus);
     setUser(potentials[Math.floor(Math.random() * potentials.length)]);
-
-    // setTimeout(async function () {
-    // }, 150);
-    // clearInterval(timerId);
-
-    // trigger post match -- false
+    console.log("potentials", currUser.potentials);
   }
   // TODO: if no more potentials, spit out message
   // TODO: if match confettiiiiiiiiii!
 
   return (
-    <div className="Swipe d-flex justify-content-center">
-      {potentials.length > 0 && (
-        <Card>
-          <>
+
+      <div className="d-flex justify-content-center pt-5">
+        {potentials.length > 0 && (
+          <Card>
             <UserCard user={user} />
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center ">
               <button
                 onClick={handleClick}
                 value={false}
-                className="addBtn btn btn-dark m-2 px-5"
+                className="btn btn-dark m-2 px-5"
               >
                 ❌
               </button>
               <button
                 onClick={handleClick}
                 value={true}
-                className="addBtn btn btn-outline-light m-2 px-5"
+                className="btn btn-outline-light m-2 px-5"
               >
                 ❤️
               </button>
             </div>
-          </>
-        </Card>
-      )}
-      {potentials.length === 0 && (
-        <h5 class="text-black">
-          Nice work, sit back and wait for some new pals!
-        </h5>
-      )}
-    </div>
+          </Card>
+        )}
+        {potentials.length === 0 && (
+          <p class="text-white fw-bold bg-dark rounded p-3">
+            Nice work, check later for some new pals!
+          </p>
+        )}
+      </div>
+
   );
 }
 
