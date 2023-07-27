@@ -33,8 +33,6 @@ function Swipe({ handleSwipe }) {
     handleSwipe(user.username, matchStatus);
     setUser(potentials[Math.floor(Math.random() * potentials.length)]);
 
-
-
     // setTimeout(async function () {
     // }, 150);
     // clearInterval(timerId);
@@ -70,7 +68,9 @@ function Swipe({ handleSwipe }) {
         </Card>
       )}
       {potentials.length === 0 && (
-        <h5 class="text-black">Nice work, sit back and wait for some new pals!</h5>
+        <h5 class="text-black">
+          Nice work, sit back and wait for some new pals!
+        </h5>
       )}
     </div>
   );

@@ -1,6 +1,23 @@
+/* Homepage Styles */
+
 .homepage-container {
-  background-image: url("../.././public/friends.jpg");
+  background-image: url("../Images/friends.webp");
   background-size: cover;
   background-position: center;
 }
 
+/* TODO: Look more into this*/
+.index-cta {
+  position: relative;
+  width: 50rem;
+  top: 10rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 580px) {
+  .index-cta {
+    width: 25rem;
+    top: 8rem;
+  }
+}

@@ -2,7 +2,6 @@ import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
-
 /** Friender API Class. */
 
 class FrienderApi {
@@ -14,7 +13,7 @@ class FrienderApi {
 
     const url = `${BASE_URL}/${endpoint}`;
     const headers = {
-      "Authorization": `Bearer ${FrienderApi.token}`,
+      Authorization: `Bearer ${FrienderApi.token}`,
       "Content-Type":
         data instanceof FormData ? "multipart/form-data" : "application/json",
     };
