@@ -1,36 +1,6 @@
-/* .homepage {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to right, #2196f3, #26c6da, #43a047);
+.homepage-container {
+  background-image: url("../.././public/friends.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-.homepage-title {
-  font-size: 4rem;
-  font-weight: 900;
-  margin-bottom: 1rem;
-}
-
-.homepage-subtitle {
-  font-size: 3rem;
-  font-weight: 400;
-  margin-top: 1rem;
-}
-
-.homep
-
-.btn-go {
-  background-color: #6460da !important;
-  color: white !important;
-}
-
-.btn-funky-moon {
-  color: white;
-  background: #a770ef;
-  background: -webkit-linear-gradient(145deg, #fdb99b, #cf8bf3, #a770ef);
-}
-
-.btn-rounded {
-  border-radius: 10px;
-} */

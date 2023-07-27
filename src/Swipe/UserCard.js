@@ -24,7 +24,7 @@ function UserCard({ user }) {
 
 
   return (
-    <div className="UserCard d-flex justify-content-center">
+    <div className="d-flex justify-content-center">
       <div className="card-body text-center mx-3 my-3">
         <img
           className="UserCard-img card-img-top"

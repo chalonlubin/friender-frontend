@@ -27,6 +27,7 @@ const LOCAL_STORAGE_TOKEN_KEY = "token";
  * App -> RoutesList, NavBar
  */
 function App() {
+  // console.log("App=============================================================")
   const [currUser, setCurrUser] = useState(null);
   const [currToken, setCurrToken] = useState(
     localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY)
@@ -44,6 +45,7 @@ function App() {
         const matchData = await FrienderApi.getMatchData(user);
         setCurrUser({ user, ...matchData });
         setIsLoading(false);
+        setToggleSwipe(false);
       }
       if (currToken !== null) {
         getUser();
@@ -92,7 +94,7 @@ function App() {
   /** Record swipe in API, toggle swipe state */
   async function handleSwipe(likee, status) {
     await FrienderApi.recordSwipe(currUser.user.username, likee, status);
-    setToggleSwipe(!toggleSwipe);
+    setToggleSwipe(true);
   }
 
   /** Store token in localStorage, update loading state */
@@ -102,23 +104,29 @@ function App() {
     setIsLoading(true);
   }
 
+  console.log("toggleSwipe", toggleSwipe)
+
   if (isLoading) return <Loading />;
+  if(toggleSwipe) return <Loading />;
 
   return (
-    <userContext.Provider value={currUser}>
-      <BrowserRouter>
-        <ToastContainer />
-        <div className="app d-flex row min-vh-100">
+    <div className="app d-flex flex-column min-vh-100">
+      <userContext.Provider value={currUser}>
+        <BrowserRouter>
+          <ToastContainer />
           <NavBar handleLogout={handleLogout} />
-          <RoutesList
-            handleSwipe={handleSwipe}
-            handleLogin={handleLogin}
-            handleRegister={handleRegister}
-            handleUpdate={handleUpdate}
-          />
-        </div>
-      </BrowserRouter>
-    </userContext.Provider>
+          {/* <div className="homepage-container flex-grow-1 d-flex justify-content-center align-items-center"> */}
+          {/* <div className="flex-grow-1 d-flex justify-content-center align-items-center"> */}
+            <RoutesList
+              handleSwipe={handleSwipe}
+              handleLogin={handleLogin}
+              handleRegister={handleRegister}
+              handleUpdate={handleUpdate}
+            />
+          {/* </div> */}
+        </BrowserRouter>
+      </userContext.Provider>
+    </div>
   );
 }
 

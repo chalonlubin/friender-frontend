@@ -1,17 +1,32 @@
 /* Styles for all items in app.js */
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,400;0,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,400;0,700;1,900&display=swap");
 
 html,
 body {
   margin: 0px;
   padding: 0px;
-  border: 3px solid rgb(53, 182, 126);
   box-sizing: border-box;
 }
 
 .app {
-  font-family: 'Lato', sans-serif;
-  border: 3px solid red;
+  font-family: "Lato", sans-serif;
+  background-color: whitesmoke;
+}
+
+/* TODO: Look this up */
+.index-cta {
+  position: relative;
+  width: 40rem;
+  top: 15rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 768px) {
+  .index-cta {
+    width: 250px;
+    top: 12rem;
+  }
 }
 
 /* .app {
@@ -56,9 +71,3 @@ label {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 } */
-
-
-
-
-
-

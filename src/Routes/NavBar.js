@@ -22,7 +22,7 @@ function NavBar({ handleLogout }) {
   // could add two functions to return login nav /logout nav
   // function authNav() {
   return (
-    <nav className="navbar navbar-expand-lg bg-light h-25">
+    <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid px-4">
         <NavLink className="navbar-brand" to="/">
           <img
