@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = import.meta.env.REACT_APP_BASE_URL || "http://localhost:3000";
+const BASE_URL = import.meta.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 /** Friender API Class. */
 
@@ -23,10 +23,11 @@ class FrienderApi {
       return (await axios({ url, method, data, params, headers })).data;
     } catch (err) {
       console.error("API Error:", err.response);
-      let message = err.response.data.error.message;
+      let message = err.response?.data?.error?.message || "Unknown error";
       throw Array.isArray(message) ? message : [message];
     }
   }
+
 
   // Individual API routes
 
