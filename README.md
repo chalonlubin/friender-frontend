@@ -6,14 +6,16 @@ Friender is a Tinder like full-stack friend matching application, where users ca
 
 [Demo Here](https://friender-ccl.surge.sh/) Deployed with Render and Surge.
 
-**Login**: _guest_ | **Password**: _password_
+**Login**: Guest Access Button
 
 ## 🧐 Motivation & Challenges
 
 > Friender was built as part of a 4 day sprint with @amaesanchez while attending Rithm School. Our major goal was to store images using AWS S3 buckets. 
 > Other than that, we wanted to build a tinder like application for friends, with a messaging system. We thought of other features as well, however with the limited time we were allotted and the required goals, we ended up just executing the basic requirements of storing and retrieving images with AWS S3 and having a swipe / match system. 
 
-> One challenging part was getting up to speed on how to exactly use AWS S3. We ended up leaning heavily on a YouTube tutorial, as the docs for this particular assignment we found unclear. Another challenge was budgeting time. We thought we could finish more features within the timeline, however we fell short of our goal in our estimations. 
+> One challenging part was getting up to speed on how to exactly use AWS S3. We ended up leaning heavily on a YouTube tutorial, as the docs for this particular assignment we found unclear. Another challenge was budgeting time. We thought we could finish more features within the timeline, however we fell short of our goal in our estimations.
+
+> Additional, I have gone back and cleaned up the UI as well as solved some bugs regarding the match functionality, and it is now up to date. I also converted the app from utilizing CRA to Vite.
 
 ## 💻 Tech Stack & Packages
 
