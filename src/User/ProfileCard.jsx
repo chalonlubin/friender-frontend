@@ -8,13 +8,15 @@ function ProfileCard() {
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center flex-grow-1">
-      <UserCard user={user} />
-      <div className="d-flex justify-content-center align-items-center p-3">
-        <Link to={`/profile/edit`} className="btn btn-dark btn-lg ">
-          Edit Profile
-        </Link>
+
+        <UserCard user={user} />
+        <div className="d-flex justify-content-center align-items-center p-3">
+          <Link to={`/profile/edit`} className="btn btn-dark btn-lg ">
+            Edit Profile
+          </Link>
+        </div>
       </div>
-    </div>
+
   );
 }
 

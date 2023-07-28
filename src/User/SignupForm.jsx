@@ -81,7 +81,7 @@ function Signup({ handleRegister }) {
         <Loading />
       ) : (
         <div className="d-flex justify-content-center p-3">
-          <div className="col-lg-6 col-10">
+          <div className="col-lg-8 col-12">
             <p className="text-center fs-3">
               Sign-up in just a few simple steps
             </p>
