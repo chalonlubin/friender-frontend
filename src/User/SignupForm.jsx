@@ -42,8 +42,6 @@ function Signup({ handleRegister }) {
 
   function handleChange(evt) {
     const { name, value } = evt.target;
-    console.log("here", name);
-
     setInputData((inputData) => ({
       ...inputData,
       [name]: value,
@@ -196,7 +194,6 @@ function Signup({ handleRegister }) {
                   id="radius"
                   name="radius"
                   value={inputData.radius}
-
                 >
                   <option value="10">10</option>
                   <option value="20">20</option>

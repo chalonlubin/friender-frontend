@@ -34,8 +34,6 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [toggleSwipe, setToggleSwipe] = useState(false);
 
-  console.log("loading", loading);
-
   //TODO: figure out when to get matches and get rest of users
   useEffect(
     function handleUser() {
@@ -65,11 +63,20 @@ function App() {
 
   /** Login user, store token in localStorage, update state */
   async function handleLogin(data) {
+    console.log("data", data);
     const token = await FrienderApi.loginUser(data);
     handleToken(token);
     setCurrToken(token);
-    console.log("handleLogin", currToken);
     toast("🚀 Login Successful!", TOAST_DEFAULTS);
+  }
+  async function handleGuestLogin() {
+    const token = await FrienderApi.loginUser({
+      username: "BestGuest",
+      password: "password",
+    });
+    handleToken(token);
+    setCurrToken(token);
+    toast("👀 Welcome Guest! Have fun looking around", TOAST_DEFAULTS);
   }
 
   /** Update user, update user state */
@@ -99,7 +106,6 @@ function App() {
   /** Store token in localStorage, update loading state */
   function handleToken(token) {
     localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, token);
-    console.log("handleToken");
     setLoading(true);
   }
 
@@ -108,7 +114,10 @@ function App() {
       <BrowserRouter>
         <ToastContainer />
         <div className="app d-flex flex-column min-vh-100">
-          <NavBar handleLogout={handleLogout} />
+          <NavBar
+            handleLogout={handleLogout}
+            handleGuestLogin={handleGuestLogin}
+          />
           {!loading ? (
             <RoutesList
               handleSwipe={handleSwipe}

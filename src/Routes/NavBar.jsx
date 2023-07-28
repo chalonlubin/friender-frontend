@@ -6,28 +6,21 @@ import userContext from "../User/userContext";
  *
  * Props
  * - handleLogout()
+ * - handleGuestLogin()
  *
  * Context
  * - currUser - obj with user info
  *
  * App -> NavBar
  */
-function NavBar({ handleLogout }) {
+function NavBar({ handleLogout, handleGuestLogin }) {
   const currUser = useContext(userContext);
 
-  function logOutUser() {
-    handleLogout();
-  }
-
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
-      <div className="container-fluid px-4">
+    <nav className="navbar navbar-expand-lg  shadow-sm bg-light">
+      <div className="container-fluid px-3 p-2">
         <NavLink className="navbar-brand" to="/">
-          <img
-            src="src/Images/brand.png"
-            alt="of icon"
-            height="18"
-          ></img>
+          <img src="src/Images/brand.png" alt="of icon" height="22"></img>
         </NavLink>
         <button
           className="navbar-toggler p-1"
@@ -41,7 +34,7 @@ function NavBar({ handleLogout }) {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav ms-auto d-flex align-items-center gap-3">
+          <ul className="navbar-nav ms-auto d-flex align-items-center pt-2 gap-2 ">
             {currUser && (
               <>
                 <li className="nav-item">
@@ -60,7 +53,7 @@ function NavBar({ handleLogout }) {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" onClick={logOutUser} to="/">
+                  <NavLink className="nav-link" onClick={handleLogout} to="/">
                     Sign Out
                   </NavLink>
                 </li>
@@ -69,18 +62,21 @@ function NavBar({ handleLogout }) {
             {!currUser && (
               <>
                 <li className="nav-item">
-                  <NavLink className=" btn btn-light btn-sm" to="/login">
+                  <NavLink className=" btn btn-sm fw-bold fs-5" to="/login">
                     LOGIN
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="btn btn-light btn-sm" to="/signup">
+                  <NavLink className="btn btn-sm fw-bold fs-5" to="/signup">
                     SIGNUP
                   </NavLink>
                 </li>
-                {/* TODO: Login as guest */}
                 <li className="nav-item">
-                  <NavLink className="btn btn-light btn-sm" to="/signup">
+                  <NavLink
+                    className="btn btn-sm fw-bold fs-5"
+                    onClick={handleGuestLogin}
+                    to="/"
+                  >
                     GUEST
                   </NavLink>
                 </li>
