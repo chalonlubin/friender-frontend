@@ -1,45 +1,39 @@
-import { Link } from "react-router-dom";
 import "./UserCard.css";
-import {
-  CardBody,
-  CardTitle,
-  CardText,
-  ListGroup,
-  ListGroupItem,
-  CardImg,
-} from "reactstrap";
 
 /**
+ * Renders a user card filled with their bio information and image.
  *
- * Props
- *  - user - { username, hobbies, interests, image }
- * @param {
- * } param0
- * @returns
+ * Props:
+ *  - user: { username, hobbies, interests, image, lastLoginAt }
+ *
  */
 function UserCard({ user }) {
-
   let date = new Date(`${user.lastLoginAt}`);
   date = date.toLocaleString();
 
-
   return (
-    <div className="d-flex justify-content-center">
-      <div className="card-body text-center mx-3 my-3">
+    <div className="user-card border border-dark rounded shadow border-1 m-3 p-3">
+      <div className="user-card-body text-center">
         <img
-          className="UserCard-img card-img-top"
+          className="user-card-img card-img-top"
           src={user.image}
           alt={user.image}
         />
-        <p className="card-name py-2">{user.username}</p>
-        <label htmlFor="interests">Interests</label>
-        <p className="card-text">{user.interests}</p>
-        <label htmlFor="interests">Hobbies</label>
-        <p className="card-text">{user.hobbies}</p>
-        <p className="card-text">
-          {/*TODO: make last login look a bit friendlier?*/}
-          <small className="text-muted">Last Login @ {date.toString()}</small>
-        </p>
+        <h2 className="user-card-name fw-bold mt-2">{user.username}</h2>
+
+        <div className="user-card-interests">
+          <h3>Interests</h3>
+          <p className="user-card-text">{user.interests}</p>
+        </div>
+
+        <div className="user-card-hobbies">
+          <h3>Hobbies</h3>
+          <p className="user-card-text">{user.hobbies}</p>
+        </div>
+
+        <div className="user-card-last-login">
+          <p className="text-success">Last Login: {date.toString()}</p>
+        </div>
       </div>
     </div>
   );
