@@ -26,10 +26,10 @@ function Homepage() {
               Glad to see you again {currUser.user.username}!
             </h1>
             <div className="d-flex gap-4 justify-content-center">
-              <Link className="btn btn-dark btn-md" to="/chums">
+              <Link className="btn btn-dark btn-md" to="/friends">
                 Matches
               </Link>
-              <Link className="btn btn-dark btn-md" to="/chums">
+              <Link className="btn btn-dark btn-md" to="/swipe">
                 Swipe
               </Link>
             </div>
