@@ -12,7 +12,7 @@ function UserCard({ user }) {
   date = date.toLocaleString();
 
   return (
-    <div className="user-card m-3 p-3  bg-white">
+    <div className="user-card m-3 p-3  rounded bg-white">
       <div className="user-card-body text-center">
         <img
           className="user-card-img card-img-top"

@@ -38,22 +38,22 @@ function NavBar({ handleLogout, handleGuestLogin }) {
             {currUser && (
               <>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/swipe">
+                  <NavLink className="nav-link fw-bold fs-5" to="/swipe">
                     Swipe
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/friends">
+                  <NavLink className="nav-link fw-bold fs-5" to="/friends">
                     Friends
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/profile">
+                  <NavLink className="nav-link fw-bold fs-5" to="/profile">
                     Profile
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" onClick={handleLogout} to="/">
+                  <NavLink className="nav-link fw-bold fs-5" onClick={handleLogout} to="/">
                     Sign Out
                   </NavLink>
                 </li>
@@ -62,18 +62,18 @@ function NavBar({ handleLogout, handleGuestLogin }) {
             {!currUser && (
               <>
                 <li className="nav-item">
-                  <NavLink className=" btn btn-sm fw-bold fs-5" to="/login">
+                  <NavLink className="nav-link fw-bold fs-5" to="/login">
                     LOGIN
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="btn btn-sm fw-bold fs-5" to="/signup">
+                  <NavLink className="nav-link fw-bold fs-5" to="/signup">
                     SIGNUP
                   </NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    className="btn btn-sm fw-bold fs-5"
+                    className="nav-link fw-bold fs-5"
                     onClick={handleGuestLogin}
                     to="/"
                   >

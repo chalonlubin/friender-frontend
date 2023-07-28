@@ -5,12 +5,13 @@
 
 .user-card {
  width: 375px;
- min-height: 550px;
+ min-height: 600px;
 }
 
 @media screen and (max-width: 500px) {
   .user-card {
     width: 250px;
+    min-height: 200px;
 
   }
   .user-card-img {

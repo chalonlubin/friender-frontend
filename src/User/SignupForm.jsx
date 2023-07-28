@@ -1,10 +1,9 @@
-import { useContext, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Alerts from "../Common/Alerts";
 import TOAST_DEFAULTS from "../Helpers/toastSettings";
 import Loading from "../Common/Loading";
-import userContext from "./userContext";
 
 /** Render signup form and navigate to homepage on successful sign up
  * else show errors
@@ -102,6 +101,8 @@ function Signup({ handleRegister }) {
                   id="username"
                   name="username"
                   value={inputData.username}
+                  pattern=".{3,12}"
+                  title="3 to 12 characters for username"
                   required
                 />
                 <label
@@ -117,6 +118,8 @@ function Signup({ handleRegister }) {
                   id="password"
                   name="password"
                   value={inputData.password}
+                  pattern=".{5,12}"
+                  title="5 to 12 characters for password"
                   required
                 />
                 <label
@@ -160,6 +163,7 @@ function Signup({ handleRegister }) {
                   className="form-control"
                   id="image"
                   name="image"
+                  title="Please input a valid image type"
                   required
                 />
                 <label

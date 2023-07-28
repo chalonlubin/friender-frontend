@@ -15,7 +15,7 @@ function Homepage() {
               New Friends Are Moments Away 🎉
             </h1>
 
-            <Link className="btn btn-dark btn-md" to="/signup">
+            <Link className="btn btn-success btn-lg" to="/signup">
               JOIN THE PARTY
             </Link>
           </>
@@ -25,11 +25,11 @@ function Homepage() {
             <h1 className="fw-bold text-dark text-center">
               Glad to see you again {currUser.user.username}!
             </h1>
-            <div className="d-flex gap-4 justify-content-center">
-              <Link className="btn btn-dark btn-md" to="/friends">
+            <div className="d-flex gap-4 justify-content-center pt-3">
+              <Link className="btn btn-dark btn-lg" to="/friends">
                 Matches
               </Link>
-              <Link className="btn btn-dark btn-md" to="/swipe">
+              <Link className="btn btn-dark btn-lg" to="/swipe">
                 Swipe
               </Link>
             </div>

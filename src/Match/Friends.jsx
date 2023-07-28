@@ -1,21 +1,20 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
+import { v4 as uuid } from "uuid"; // Import uuid if not already imported
+import UserCard from "../Swipe/UserCard";
 import userContext from "../User/userContext";
-import { v4 as uuid } from "uuid";
-import FriendCard from "./FriendCard";
 
 function Friends() {
   const currUser = useContext(userContext);
   const matches = currUser.matches;
 
   return (
-    <>
-      {matches.map((match) => (
-        <FriendCard key={uuid()} match={match} />
-      ))}
-      {matches.length === 0 && (
+    <div className="d-flex justify-content-center mt-3">
+      {matches.length === 0 ? (
         <p className="friend-message fs-4">No friends yet 😅</p>
+      ) : (
+        matches.map((match) => <UserCard key={uuid()} user={match} />)
       )}
-    </>
+    </div>
   );
 }
 

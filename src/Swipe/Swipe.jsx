@@ -32,7 +32,7 @@ function Swipe({ handleSwipe }) {
     setUser(potentials[Math.floor(Math.random() * potentials.length)]);
     console.log("potentials", currUser.potentials);
   }
-  // TODO: if no more potentials, spit out message
+
   // TODO: if match confettiiiiiiiiii!
 
   return (
@@ -59,8 +59,8 @@ function Swipe({ handleSwipe }) {
         </div>
       )}
       {potentials.length === 0 && (
-        <p class="text-white fw-bold bg-dark rounded p-3">
-          Nice work, check later for some new pals!
+        <p className="text-black fw-bold fs-2 p-3 text-center">
+          That's all for now, check later for some new pals!
         </p>
       )}
     </div>
