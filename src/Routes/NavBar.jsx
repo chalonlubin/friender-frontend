@@ -24,7 +24,7 @@ function NavBar({ handleLogout }) {
       <div className="container-fluid px-4">
         <NavLink className="navbar-brand" to="/">
           <img
-            src="logo-black-on-transparent-background.png"
+            src="src/Images/brand.png"
             alt="of icon"
             height="18"
           ></img>
