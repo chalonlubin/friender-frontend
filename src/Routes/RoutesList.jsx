@@ -25,14 +25,22 @@ import Friends from "../match/Friends";
  */
 
 // handleSwipe?
-function RoutesList({ handleLogin, handleRegister, handleUpdate, handleSwipe }) {
+function RoutesList({
+  handleLogin,
+  handleRegister,
+  handleUpdate,
+  handleSwipe,
+}) {
   const currUser = useContext(userContext);
 
   function authRoutes() {
     return (
       <>
         <Route path="/profile" element={<ProfileCard />} />
-        <Route path="/profile/edit" element={<EditForm handleUpdate={handleUpdate} />} />
+        <Route
+          path="/profile/edit"
+          element={<EditForm handleUpdate={handleUpdate} />}
+        />
         <Route path="/swipe" element={<Swipe handleSwipe={handleSwipe} />} />
         <Route path="/friends" element={<Friends />} />
         <Route path="/messages/:matchedUser" element={<Messages />} />
@@ -43,10 +51,7 @@ function RoutesList({ handleLogin, handleRegister, handleUpdate, handleSwipe }) 
   function unauthRoutes() {
     return (
       <>
-        <Route
-          path="/login"
-          element={<Login handleLogin={handleLogin} />}
-        />
+        <Route path="/login" element={<Login handleLogin={handleLogin} />} />
         <Route
           path="/signup"
           element={<Signup handleRegister={handleRegister} />}

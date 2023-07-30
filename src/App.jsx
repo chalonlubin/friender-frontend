@@ -9,7 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import FrienderApi from "./helpers/api";
 import NavBar from "./routes/NavBar";
-import RoutesList from "./routes/RoutesList";
+import RoutesList from "./Routes/RoutesList";
 import Loading from "./common/Loading";
 import TOAST_DEFAULTS from "./helpers/toastSettings";
 import userContext from "./user/userContext";
@@ -34,7 +34,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [toggleSwipe, setToggleSwipe] = useState(false);
 
-  //TODO: figure out when to get matches and get rest of users
+
   useEffect(
     function handleUser() {
       async function getUser() {
