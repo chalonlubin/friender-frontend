@@ -4,7 +4,7 @@ import userContext from "../user/userContext";
 import Homepage from "../common/Homepage";
 import Login from "../user/LoginForm";
 import Signup from "../user/SignupForm";
-import ProfileForm from "../user/ProfileForm";
+import EditForm from "../user/EditForm";
 import ProfileCard from "../user/ProfileCard";
 import Swipe from "../swipe/Swipe";
 import Messages from "../messages/Message";
@@ -32,7 +32,7 @@ function RoutesList({ handleLogin, handleRegister, handleUpdate, handleSwipe }) 
     return (
       <>
         <Route path="/profile" element={<ProfileCard />} />
-        <Route path="/profile/edit" element={<ProfileForm handleUpdate={handleUpdate} />} />
+        <Route path="/profile/edit" element={<EditForm handleUpdate={handleUpdate} />} />
         <Route path="/swipe" element={<Swipe handleSwipe={handleSwipe} />} />
         <Route path="/friends" element={<Friends />} />
         <Route path="/messages/:matchedUser" element={<Messages />} />

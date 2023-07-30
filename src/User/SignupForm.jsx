@@ -24,20 +24,18 @@ import Loading from "../common/Loading";
  */
 function Signup({ handleRegister }) {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
 
-  // TODO: location and radius must be coerced to integer
-  const initialState = {
+  const [loading, setLoading] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [err, setErr] = useState(null);
+  const [inputData, setInputData] = useState({
     username: "",
     password: "",
     interests: "Making all the friends!",
     hobbies: "Testing people's applications, I swear I'm not a stalker",
     location: "12345",
     radius: 500,
-  };
-  const [inputData, setInputData] = useState(initialState);
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [err, setErr] = useState(null);
+  });
 
   function handleChange(evt) {
     const { name, value } = evt.target;
@@ -54,6 +52,7 @@ function Signup({ handleRegister }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     const formData = new FormData();
+
     try {
       setLoading(true);
       formData.append("image", selectedFile);
@@ -63,10 +62,10 @@ function Signup({ handleRegister }) {
       await handleRegister(formData);
       navigate("/");
       toast("✅ Sign-up Successful!", TOAST_DEFAULTS);
-      setInputData(initialState);
+
     } catch (err) {
       setErr(err);
-      toast(" Error with login, please try again", TOAST_DEFAULTS);
+      toast("Error with login, please try again", TOAST_DEFAULTS);
     } finally {
       setLoading(false);
     }

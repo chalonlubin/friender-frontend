@@ -4,14 +4,13 @@ import Alerts from "../common/Alerts";
 import { useNavigate } from "react-router-dom";
 import Loading from "../common/Loading";
 
-function ProfileForm({ handleUpdate }) {
+function EditForm({ handleUpdate }) {
   const navigate = useNavigate();
   const { user } = useContext(userContext);
 
-  const [selectedImage, setSelectedImage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
   const [err, setErr] = useState(null);
-
   const [inputData, setInputData] = useState({
     interests: user.interests,
     hobbies: user.hobbies,
@@ -21,30 +20,31 @@ function ProfileForm({ handleUpdate }) {
 
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setInputData((prevData) => ({ ...prevData, [name]: value }));
+    setInputData((inputData) => ({
+      ...inputData,
+      [name]: value,
+    }));
   }
 
-  function handleImageChange(evt) {
-    const file = evt.target.files[0];
-    setSelectedImage(file);
+  function handleFileSelect(event) {
+    setSelectedFile(event.target.files[0]);
   }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
+    const formData = new FormData();
+
     try {
       setLoading(true);
-      const formData = new FormData();
-
+      console.log("selectedFile", selectedFile)
+      if (!selectedFile) {
+        formData.append("image", user.image);
+      } else {
+        formData.append("image", selectedFile);
+      }
       for (let fieldName in inputData) {
         formData.append(fieldName, inputData[fieldName]);
       }
-
-      if (!selectedImage) {
-        formData.append("image", user.image);
-      } else {
-        formData.append("image", selectedImage);
-      }
-
       await handleUpdate(formData);
       navigate("/profile");
     } catch (e) {
@@ -59,10 +59,12 @@ function ProfileForm({ handleUpdate }) {
       {loading ? (
         <Loading />
       ) : (
-        <div className="SignupForm d-flex justify-content-center p-3">
+        <div className="d-flex justify-content-center p-3">
           <div className="col-lg-8 col-12">
-            <h1 className="Edit form-header press2p">Edit Profile</h1>
-            <form onSubmit={handleSubmit} className="bg-light rounded p-3">
+            <p className="text-center fs-3">
+              Spice up your profile 🌶️
+            </p>
+            <form onSubmit={handleSubmit} className="bg-light rounded border border-dark border-2 shadow p-3">
               <div className="form-group">
                 {err && <Alerts err={err} />}
                 <label htmlFor="username">Username</label>
@@ -95,7 +97,7 @@ function ProfileForm({ handleUpdate }) {
                 />
                 <label htmlFor="image">Image</label>
                 <input
-                  onChange={handleImageChange}
+                  onChange={handleFileSelect}
                   type="file"
                   className="form-control"
                   id="image"
@@ -108,26 +110,30 @@ function ProfileForm({ handleUpdate }) {
                   className="form-control"
                   id="location"
                   name="location"
-                  value={inputData.location}
+                  value={user.location}
                 />
                 <label htmlFor="radius">Preferred Radius</label>
                 <select
                   onChange={handleChange}
+                  type="range"
                   className="form-control"
                   id="radius"
                   name="radius"
-                  value={inputData.radius}
+                  value={user.radius}
                 >
-                  <option value="5">5</option>
                   <option value="10">10</option>
-                  <option value="25">15</option>
+                  <option value="20">20</option>
                   <option value="50">50</option>
                   <option value="100">100</option>
+                  <option value="250">250</option>
+                  <option value="500">500</option>
                 </select>
               </div>
-              <button type="submit" className="btn btn-go mt-3">
-                Submit
-              </button>
+              <div className="d-flex justify-content-center">
+                <button type="submit" className="btn btn-dark btn-lg mt-3 ">
+                  Submit
+                </button>
+                </div>
             </form>
           </div>
         </div>
@@ -136,4 +142,4 @@ function ProfileForm({ handleUpdate }) {
   );
 }
 
-export default ProfileForm;
+export default EditForm;
