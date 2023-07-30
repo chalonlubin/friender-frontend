@@ -63,7 +63,6 @@ function App() {
 
   /** Login user, store token in localStorage, update state */
   async function handleLogin(data) {
-    console.log("data", data);
     const token = await FrienderApi.loginUser(data);
     handleToken(token);
     setCurrToken(token);

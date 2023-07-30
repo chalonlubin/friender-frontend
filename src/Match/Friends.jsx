@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { v4 as uuid } from "uuid"; // Import uuid if not already imported
-import UserCard from "../swipe/UserCard";
+import UserCard from "../user/UserCard";
 import userContext from "../user/userContext";
 
 function Friends() {
@@ -8,9 +8,9 @@ function Friends() {
   const matches = currUser.matches;
 
   return (
-    <div className="d-flex justify-content-center mt-3">
+    <div className="d-flex flex-wrap justify-content-center align-items-center flex-grow-1 p-2">
       {matches.length === 0 ? (
-        <p className="friend-message fs-4">No friends yet 😅</p>
+        <p className="fw-bold fs-3">No friends yet 😅</p>
       ) : (
         matches.map((match) => <UserCard key={uuid()} user={match} />)
       )}

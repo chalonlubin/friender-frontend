@@ -12,23 +12,23 @@ function UserCard({ user }) {
   date = date.toLocaleString();
 
   return (
-    <div className="user-card m-3 p-3  rounded bg-white">
+    <div className="user-card m-3 p-3 border border-dark rounded bg-white">
       <div className="user-card-body text-center">
         <img
           className="user-card-img card-img-top"
           src={user.image}
-          alt={user.image}
+          alt={user.username}
         />
-        <h2 className="user-card-name fw-bold mt-2">{user.username}</h2>
+        <h2 className="fw-bold mt-2">{user.username}</h2>
 
-        <div className="user-card-interests">
+        <div>
           <h3>Interests</h3>
-          <p className="user-card-text">{user.interests}</p>
+          <p>{user.interests}</p>
         </div>
 
-        <div className="user-card-hobbies">
+        <div>
           <h3>Hobbies</h3>
-          <p className="user-card-text">{user.hobbies}</p>
+          <p>{user.hobbies}</p>
         </div>
 
         <div className="user-card-last-login">

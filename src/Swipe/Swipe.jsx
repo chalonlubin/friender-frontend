@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 
-import UserCard from "./UserCard";
+import UserCard from "../user/UserCard";
 import userContext from "../user/userContext";
 
 /**
@@ -30,15 +30,14 @@ function Swipe({ handleSwipe }) {
     const matchStatus = evt.target.value;
     handleSwipe(user.username, matchStatus);
     setUser(potentials[Math.floor(Math.random() * potentials.length)]);
-    console.log("potentials", currUser.potentials);
   }
 
-  // TODO: if match confettiiiiiiiiii!
+  // TODO: if match confetti!
 
   return (
-    <div className="d-flex justify-content-center pt-5">
+    <div className="d-flex justify-content-center mt-3 align-items-center flex-grow-1">
       {potentials.length > 0 && (
-        <div className="border shadow bg-white">
+        <div className="bg-none rounded p-2">
           <UserCard user={user} />
           <div className="d-flex justify-content-center ">
             <button
@@ -51,7 +50,7 @@ function Swipe({ handleSwipe }) {
             <button
               onClick={handleClick}
               value={true}
-              className="btn btn-outline-light m-2 px-5"
+              className="btn btn-light m-2 px-5"
             >
               ❤️
             </button>
@@ -59,7 +58,7 @@ function Swipe({ handleSwipe }) {
         </div>
       )}
       {potentials.length === 0 && (
-        <p className="text-black fw-bold fs-2 p-3 text-center">
+        <p className="text-black fw-bold fs-3 text-center">
           That's all for now, check later for some new pals!
         </p>
       )}

@@ -4,8 +4,9 @@
 }
 
 .user-card {
- width: 375px;
+ width: 350px;
  min-height: 600px;
+ border-radius: 10px;
 }
 
 @media screen and (max-width: 500px) {

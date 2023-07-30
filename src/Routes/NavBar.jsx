@@ -34,22 +34,22 @@ function NavBar({ handleLogout, handleGuestLogin }) {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav ms-auto d-flex align-items-center pt-2 gap-2 ">
+          <ul className="navbar-nav ms-auto d-flex align-items-center pt-2 gap-4 ">
             {currUser && (
               <>
                 <li className="nav-item">
                   <NavLink className="nav-link fw-bold fs-5" to="/swipe">
-                    Swipe
+                    SWIPE
                   </NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink className="nav-link fw-bold fs-5" to="/friends">
-                    Friends
+                    FRIENDS
                   </NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink className="nav-link fw-bold fs-5" to="/profile">
-                    Profile
+                    PROFILE
                   </NavLink>
                 </li>
                 <li className="nav-item">
@@ -58,7 +58,7 @@ function NavBar({ handleLogout, handleGuestLogin }) {
                     onClick={handleLogout}
                     to="/"
                   >
-                    Sign Out
+                    SIGN OUT
                   </NavLink>
                 </li>
               </>

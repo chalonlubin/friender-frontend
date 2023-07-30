@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import UserCard from "../swipe/UserCard";
+import UserCard from "./UserCard";
 import userContext from "./userContext";
 import FrienderApi from "../helpers/api";
 
@@ -10,7 +10,7 @@ function ProfileCard() {
 
   useEffect(() => {
     fetchUserData();
-  }, []);
+  }, [user.image]);
 
   const fetchUserData = async () => {
     try {

@@ -25,7 +25,7 @@ function Homepage() {
             <h1 className="fw-bold text-dark text-center">
               Glad to see you again {currUser.user.username}!
             </h1>
-            <div className="d-flex gap-4 justify-content-center pt-3">
+            <div className="d-flex gap-5 justify-content-evenly pt-3">
               <Link className="btn btn-dark btn-lg" to="/friends">
                 Matches
               </Link>

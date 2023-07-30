@@ -78,9 +78,9 @@ function Signup({ handleRegister }) {
       ) : (
         <div className="d-flex justify-content-center p-3">
           <div className="col-lg-8 col-12">
-            <p className="text-center fs-3">
-              Sign-up in just a few simple steps
-            </p>
+            <h3 className="form-header text-center fw-bold p-3">
+              Sign up in just a few simple steps
+            </h3>
             <form
               onSubmit={handleSubmit}
               className="bg-light rounded border border-dark border-2 shadow p-3"

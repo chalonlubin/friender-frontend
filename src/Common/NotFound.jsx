@@ -9,7 +9,7 @@ import "./NotFound.css";
  **/
 function NotFound() {
   return (
-    <>
+    <div>
       <figure>
         <div className="sad-mac"></div>
         <figcaption>
@@ -32,7 +32,7 @@ function NotFound() {
           <span className="d"></span>
         </figcaption>
       </figure>
-    </>
+    </div>
   );
 }
 
