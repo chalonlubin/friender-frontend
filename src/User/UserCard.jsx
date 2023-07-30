@@ -8,8 +8,8 @@ import "./UserCard.css";
  *
  */
 function UserCard({ user }) {
-  let date = new Date(`${user.lastLoginAt}`);
-  date = date.toLocaleString();
+  // Convert lastLoginAt to a formatted date string
+  let date = new Date(user.lastLoginAt).toLocaleString();
 
   return (
     <div className="user-card m-3 p-3 border border-dark rounded bg-white">

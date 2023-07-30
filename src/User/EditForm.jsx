@@ -36,7 +36,7 @@ function EditForm({ handleUpdate }) {
 
     try {
       setLoading(true);
-      console.log("selectedFile", selectedFile)
+
       if (!selectedFile) {
         formData.append("image", user.image);
       } else {
@@ -61,10 +61,11 @@ function EditForm({ handleUpdate }) {
       ) : (
         <div className="d-flex justify-content-center p-3">
           <div className="col-lg-8 col-12">
-            <p className="text-center fs-3">
-              Spice up your profile 🌶️
-            </p>
-            <form onSubmit={handleSubmit} className="bg-light rounded border border-dark border-2 shadow p-3">
+            <p className="text-center fs-3">Spice up your profile 🌶️</p>
+            <form
+              onSubmit={handleSubmit}
+              className="bg-light rounded border border-dark border-2 shadow p-3"
+            >
               <div className="form-group">
                 {err && <Alerts err={err} />}
                 <label htmlFor="username">Username</label>
@@ -133,7 +134,7 @@ function EditForm({ handleUpdate }) {
                 <button type="submit" className="btn btn-dark btn-lg mt-3 ">
                   Submit
                 </button>
-                </div>
+              </div>
             </form>
           </div>
         </div>

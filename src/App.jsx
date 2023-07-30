@@ -34,7 +34,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [toggleSwipe, setToggleSwipe] = useState(false);
 
-
+  /**  useEffect to handle user data retrieval */
   useEffect(
     function handleUser() {
       async function getUser() {
