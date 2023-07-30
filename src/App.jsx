@@ -1,6 +1,6 @@
-// import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
+import "./index.css";
 
 import { BrowserRouter } from "react-router-dom";
 import jwt_decode from "jwt-decode";
