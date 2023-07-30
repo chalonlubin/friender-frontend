@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Alerts from "../Common/Alerts";
-import TOAST_DEFAULTS from "../Helpers/toastSettings";
-import Loading from "../Common/Loading";
+import Alerts from "../common/Alerts";
+import TOAST_DEFAULTS from "../helpers/toastSettings";
+import Loading from "../common/Loading";
 
 /** Render signup form and navigate to homepage on successful sign up
  * else show errors

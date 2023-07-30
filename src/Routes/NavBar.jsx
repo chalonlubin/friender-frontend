@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import userContext from "../User/userContext";
+import userContext from "../user/userContext";
 
 /** Render navigation bar
  *
@@ -20,7 +20,7 @@ function NavBar({ handleLogout, handleGuestLogin }) {
     <nav className="navbar navbar-expand-lg  shadow-sm bg-light">
       <div className="container-fluid px-3 p-2">
         <NavLink className="navbar-brand" to="/">
-          <img src="src/Images/brand.png" alt="of icon" height="22"></img>
+          <img src="src/assets/brand.png" alt="of icon" height="22"></img>
         </NavLink>
         <button
           className="navbar-toggler p-1"
@@ -53,7 +53,11 @@ function NavBar({ handleLogout, handleGuestLogin }) {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link fw-bold fs-5" onClick={handleLogout} to="/">
+                  <NavLink
+                    className="nav-link fw-bold fs-5"
+                    onClick={handleLogout}
+                    to="/"
+                  >
                     Sign Out
                   </NavLink>
                 </li>

@@ -1,7 +1,7 @@
 import "./Homepage.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import userContext from "../User/userContext";
+import userContext from "../user/userContext";
 
 function Homepage() {
   const currUser = useContext(userContext);

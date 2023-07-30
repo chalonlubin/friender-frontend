@@ -1,7 +1,7 @@
 /* Homepage Styles */
 
 .homepage-container {
-  background-image: url("../Images/friends.webp");
+  background-image: url("../assets/friends.png");
   background-size: cover;
   background-position: center;
 }

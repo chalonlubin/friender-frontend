@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import UserCard from "../Swipe/UserCard";
+import UserCard from "../swipe/UserCard";
 import userContext from "./userContext";
 
 function ProfileCard() {

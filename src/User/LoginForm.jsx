@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Alerts from "../Common/Alerts";
-import Loading from "../Common/Loading";
+import Alerts from "../common/Alerts";
+import Loading from "../common/Loading";
 
 /** Render login form and navigate to homepage on successful login
  * else show errors

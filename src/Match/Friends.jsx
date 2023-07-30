@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { v4 as uuid } from "uuid"; // Import uuid if not already imported
-import UserCard from "../Swipe/UserCard";
-import userContext from "../User/userContext";
+import UserCard from "../swipe/UserCard";
+import userContext from "../user/userContext";
 
 function Friends() {
   const currUser = useContext(userContext);

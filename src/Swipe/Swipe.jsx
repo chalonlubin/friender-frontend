@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 
 import UserCard from "./UserCard";
-import userContext from "../User/userContext";
+import userContext from "../user/userContext";
 
 /**
  * Renders potential match cards

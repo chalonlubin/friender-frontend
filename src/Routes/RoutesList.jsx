@@ -1,15 +1,15 @@
 import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
-import userContext from "../User/userContext";
-import Homepage from "../Common/Homepage";
-import Login from "../User/LoginForm";
-import Signup from "../User/SignupForm";
-import ProfileForm from "../User/ProfileForm";
-import ProfileCard from "../User/ProfileCard";
-import Swipe from "../Swipe/Swipe";
-import Messages from "../Messages/Message";
-import NotFound from "../Common/NotFound";
-import Friends from "../Match/Friends";
+import userContext from "../user/userContext";
+import Homepage from "../common/Homepage";
+import Login from "../user/LoginForm";
+import Signup from "../user/SignupForm";
+import ProfileForm from "../user/ProfileForm";
+import ProfileCard from "../user/ProfileCard";
+import Swipe from "../swipe/Swipe";
+import Messages from "../messages/Message";
+import NotFound from "../common/NotFound";
+import Friends from "../match/Friends";
 
 /** Set up Friender routes
  *

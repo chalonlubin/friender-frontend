@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import userContext from "./userContext";
-import Alerts from "../Common/Alerts";
+import Alerts from "../common/Alerts";
 import { useNavigate } from "react-router-dom";
-import Loading from "../Common/Loading";
+import Loading from "../common/Loading";
 
 function ProfileForm({ handleUpdate }) {
   const navigate = useNavigate();
