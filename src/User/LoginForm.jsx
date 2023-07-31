@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Alerts from "../common/Alerts";
 import Loading from "../common/Loading";
 
@@ -19,6 +20,7 @@ import Loading from "../common/Loading";
  *
  * RoutesList -> LoginForm -> Errors
  */
+// eslint-disable-next-line react/prop-types
 function Login({ handleLogin }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -60,7 +62,7 @@ function Login({ handleLogin }) {
         <div className="d-flex justify-content-center flex-grow-1 p-3">
           <div className="col-lg-5 col-12">
             <h3 className="form-header text-center fw-bold p-3">
-              Welcome Back!
+              Welcome back 👋
             </h3>
             <form
               onSubmit={handleSubmit}
@@ -91,10 +93,14 @@ function Login({ handleLogin }) {
                   value={formData.password}
                 />
               </div>
-              <div className="d-flex justify-content-center">
-                <button type="submit" className="btn btn-dark btn-lg mt-3 ">
+              <div className="d-flex flex-column gap-2 justify-content-center">
+                <button type="submit" className="btn btn-dark btn-lg my-3 ">
                   Join
                 </button>
+                <p className="text-center">Not a member yet?</p>
+                <Link to="/signup" className="btn btn-warning btn-lg ">
+                  Register
+                </Link>
               </div>
             </form>
           </div>
