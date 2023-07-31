@@ -16,7 +16,7 @@ function Homepage() {
             New Friends Are Moments Away 🎉
           </h1>
 
-          <Link className="btn btn-success btn-lg" to="/signup">
+          <Link className="btn btn-warning btn-lg mt-3" to="/signup">
             JOIN THE PARTY
           </Link>
         </Container>

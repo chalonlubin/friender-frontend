@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import userContext from "../user/userContext";
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
@@ -22,14 +21,13 @@ function NavBar({ handleLogout, handleGuestLogin }) {
   const currUser = useContext(userContext);
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
+    <Navbar expand="lg" className="bg-body-tertiary p-3">
         <NavLink className="navbar-brand" to="/">
-          <img src="/brand.png" alt="of icon" height="22" />
+          <img src="/brand.svg" alt="of icon" height="45" />
         </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="ms-auto">
             {currUser ? (
               <>
                 <Nav.Link as={NavLink} to="/swipe">SWIPE</Nav.Link>
@@ -45,8 +43,8 @@ function NavBar({ handleLogout, handleGuestLogin }) {
               </>
             )}
           </Nav>
+
         </Navbar.Collapse>
-      </Container>
     </Navbar>
   );
 }
