@@ -6,18 +6,16 @@
   background-position: center;
 }
 
-/* TODO: Look more into this*/
 .index-cta {
   position: relative;
-  width: 50rem;
-  top: 12rem;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  max-width: 50rem; /* Use max-width instead of width */
+  top: -15rem; /* Adjust the vertical position */
+  margin: 0 auto; /* Center the container horizontally */
 }
 
 @media screen and (max-width: 580px) {
   .index-cta {
-    width: 25rem;
-    top: 6rem;
+    max-width: 25rem; /* Use max-width instead of width for smaller screens */
+    top: -10rem; /* Adjust the vertical position for smaller screens */
   }
 }

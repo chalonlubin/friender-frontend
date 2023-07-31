@@ -9,7 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import FrienderApi from "../src/helpers/api"
 import NavBar from "./routes/NavBar";
-import RoutesList from "./Routes/RoutesList";
+import RoutesList from "./routes/RoutesList";
 import Loading from "./common/Loading";
 import TOAST_DEFAULTS from "./helpers/toastSettings";
 import userContext from "./user/userContext";

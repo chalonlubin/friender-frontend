@@ -1,6 +1,10 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import userContext from "../user/userContext";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+
 
 /** Render navigation bar
  *
@@ -13,83 +17,37 @@ import userContext from "../user/userContext";
  *
  * App -> NavBar
  */
+// eslint-disable-next-line react/prop-types
 function NavBar({ handleLogout, handleGuestLogin }) {
   const currUser = useContext(userContext);
 
   return (
-    <nav className="navbar navbar-expand-lg  shadow-sm bg-light">
-      <div className="container-fluid px-3 p-2">
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
         <NavLink className="navbar-brand" to="/">
-          <img src="src/assets/brand.png" alt="of icon" height="22"></img>
+          <img src="/brand.png" alt="of icon" height="22" />
         </NavLink>
-        <button
-          className="navbar-toggler p-1"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav ms-auto d-flex align-items-center pt-2 gap-4 ">
-            {currUser && (
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            {currUser ? (
               <>
-                <li className="nav-item">
-                  <NavLink className="nav-link fw-bold fs-5" to="/swipe">
-                    SWIPE
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link fw-bold fs-5" to="/friends">
-                    FRIENDS
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link fw-bold fs-5" to="/profile">
-                    PROFILE
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink
-                    className="nav-link fw-bold fs-5"
-                    onClick={handleLogout}
-                    to="/"
-                  >
-                    SIGN OUT
-                  </NavLink>
-                </li>
+                <Nav.Link as={NavLink} to="/swipe">SWIPE</Nav.Link>
+                <Nav.Link as={NavLink} to="/friends">FRIENDS</Nav.Link>
+                <Nav.Link as={NavLink} to="/profile">PROFILE</Nav.Link>
+                <Nav.Link onClick={handleLogout} as={NavLink} to="/">SIGN OUT</Nav.Link>
+              </>
+            ) : (
+              <>
+                <Nav.Link as={NavLink} to="/login">LOGIN</Nav.Link>
+                <Nav.Link as={NavLink} to="/signup">SIGNUP</Nav.Link>
+                <Nav.Link onClick={handleGuestLogin} as={NavLink} to="/">GUEST</Nav.Link>
               </>
             )}
-            {!currUser && (
-              <>
-                <li className="nav-item">
-                  <NavLink className="nav-link fw-bold fs-5" to="/login">
-                    LOGIN
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link fw-bold fs-5" to="/signup">
-                    SIGNUP
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink
-                    className="nav-link fw-bold fs-5"
-                    onClick={handleGuestLogin}
-                    to="/"
-                  >
-                    GUEST
-                  </NavLink>
-                </li>
-              </>
-            )}
-          </ul>
-        </div>
-      </div>
-    </nav>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
