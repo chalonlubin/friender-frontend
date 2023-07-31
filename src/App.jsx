@@ -7,7 +7,7 @@ import jwt_decode from "jwt-decode";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
-import FrienderApi from "./helpers/api"
+import FrienderApi from "@helpers/api";
 import NavBar from "./routes/NavBar";
 import RoutesList from "./routes/RoutesList";
 import Loading from "./common/Loading";
