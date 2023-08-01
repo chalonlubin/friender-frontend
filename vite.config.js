@@ -13,7 +13,6 @@ export default defineConfig({
   resolve: {
     alias: {
       // Add an alias for the helpers directory
-
       '@src': path.resolve(__dirname, 'src'),
         '@root': path.resolve(__dirname, './'),
         '@public': path.resolve(__dirname, './public'),
