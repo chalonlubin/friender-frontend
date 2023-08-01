@@ -1,0 +1,22 @@
+.user-card-img {
+  width: 300px;
+  height: 300px;
+}
+
+.user-card {
+ width: 350px;
+ min-height: 600px;
+ border-radius: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .user-card {
+    width: 250px;
+    min-height: 200px;
+
+  }
+  .user-card-img {
+    width: 200px;
+    height: 200px;
+  }
+}
