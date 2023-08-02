@@ -1,7 +1,7 @@
 
 const TOAST_DEFAULTS = {
   position: "bottom-left",
-  autoClose: 1500,
+  autoClose: 2000,
   hideProgressBar: false,
   closeOnClick: true,
   pauseOnHover: false,

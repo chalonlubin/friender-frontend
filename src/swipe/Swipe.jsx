@@ -16,6 +16,7 @@ import userContext from "../user/userContext";
  * - handleSwipe: function to handle swiping
  *
  */
+// eslint-disable-next-line react/prop-types
 function Swipe({ handleSwipe }) {
   const currUser = useContext(userContext);
   const potentials = currUser.potentials;
@@ -32,7 +33,7 @@ function Swipe({ handleSwipe }) {
     setUser(potentials[Math.floor(Math.random() * potentials.length)]);
   }
 
-  // TODO: if match confetti!
+  // TODO: if match confetti
 
   return (
     <div className="d-flex justify-content-center mt-3 align-items-center flex-grow-1">

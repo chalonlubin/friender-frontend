@@ -7,9 +7,8 @@ import jwt_decode from "jwt-decode";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
-
 import FrienderApi from "@helpers/api";
-import NavBar from '@routes/NavBar'
+import NavBar from "@routes/NavBar";
 import RoutesList from "@routes/RoutesList";
 import Loading from "@common/Loading";
 import TOAST_DEFAULTS from "@helpers/toastSettings";
@@ -39,18 +38,17 @@ function App() {
   useEffect(
     function handleUser() {
       async function getUser() {
+        setLoading(true);
         FrienderApi.token = currToken;
         const { username } = jwt_decode(currToken);
         const user = await FrienderApi.getUser(username);
         const matchData = await FrienderApi.getMatchData(user);
         setCurrUser({ user, ...matchData });
-        setLoading(false);
       }
       if (currToken !== null) {
         getUser();
-      } else {
-        setLoading(false);
       }
+      setLoading(false);
     },
     [currToken, toggleSwipe]
   );
@@ -100,8 +98,16 @@ function App() {
 
   /** Record swipe in API, toggle swipe state */
   async function handleSwipe(likee, status) {
-    await FrienderApi.recordSwipe(currUser.user.username, likee, status);
-    setToggleSwipe(!toggleSwipe);
+    try {
+      setLoading(true);
+      await FrienderApi.recordSwipe(currUser.user.username, likee, status);
+      setToggleSwipe(!toggleSwipe);
+    } catch (err) {
+      toast("🤷‍♀️ Slow down turbo!", TOAST_DEFAULTS);
+    } finally {
+      setLoading(false);
+    }
+
   }
 
   /** Store token in localStorage, update loading state */
