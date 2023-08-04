@@ -73,7 +73,7 @@ AWS_SECRET_KEY=""
 - Convert to Vite ✅
 - Solve bug with swiping ✅ - wip, but it is better than what it was.
 - User messaging interface
-- Add AuthO feature to login with Google / FB
+- Add OAuth feature to login with Google / FB
 - Add events that users can all signup for in an area based on zip code
 - Add friend reviews
 - Add mutual friend feature
